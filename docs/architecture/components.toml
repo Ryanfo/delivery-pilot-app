@@ -1,0 +1,7 @@
+# Component map used by the delivery coordinator for overlap detection.
+[components]
+domain = ["src/domain/**"]
+data = ["src/data/**"]
+storage = ["src/storage/**"]
+ui = ["src/App.tsx", "src/components/**"]
+e2e = ["e2e/**"]
