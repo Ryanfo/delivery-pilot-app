@@ -1,0 +1,36 @@
+{
+  "actual_commit": null,
+  "actual_paths": [],
+  "components": [
+    "ui: src/App.tsx (task list page)",
+    "ui: src/components/TaskList.tsx",
+    "ui: src/components/useRevealOnScroll.ts (new hook)",
+    "e2e: e2e/styling.spec.ts (new)"
+  ],
+  "dependencies": [],
+  "domain_models": [],
+  "interfaces": [
+    "useRevealOnScroll<T extends Element>(): { ref, isVisible } (new, src/components/useRevealOnScroll.ts)"
+  ],
+  "migrations": [],
+  "owner_account_id": "5b51e9f46a66cf638d2cb417",
+  "paths": [
+    "src/styles.css",
+    "src/styles.test.ts",
+    "src/components/useRevealOnScroll.ts",
+    "src/App.styling.test.tsx",
+    "e2e/styling.spec.ts",
+    "src/main.tsx",
+    "src/App.tsx",
+    "src/components/TaskList.tsx"
+  ],
+  "plan_revision": 1,
+  "published_at": "2026-10-02T11:05:30.552651Z",
+  "schema_version": 1,
+  "schemas": [],
+  "sequencing_notes": "SDLC-7 (same owner, 'Ready for release') has an unmerged change to src/App.tsx from the same base commit. Rebase this branch onto main after SDLC-7 merges, before implementing, then diff-check src/App.tsx.",
+  "source_commit": "7d3619a7685a11ee29ef87f7ea9c6e2f0b54ca51",
+  "stage": "planning",
+  "ticket_dependencies": [],
+  "ticket_key": "SDLC-8"
+}
