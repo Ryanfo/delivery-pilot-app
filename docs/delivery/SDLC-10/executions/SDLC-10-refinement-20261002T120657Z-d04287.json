@@ -1,0 +1,20 @@
+{
+  "artefact": "docs/delivery/SDLC-10/specification/v001.md",
+  "attempt": 1,
+  "brief_digest": "31d1e4271fe5630c5985f7ef492060defa9afb15f96990947f715eaada8b0550",
+  "checks": [],
+  "config_digest": "3caeac9644ff46ed36606e2d6cb3a627e640e94354223a63794f2b266addaf5b",
+  "decision": "success",
+  "input_revision": "38001b9625f45e2471aa5f6d0bd14c7205fe7f477a49e877b574d94566a42a17",
+  "plugin_digest": "b35c17af500c9f150a42c941c32a189d76084f631ec9eea5076e03f1d2f0bccc",
+  "questions": [],
+  "reason": "Drafted specification v001 for SDLC-10 (\"Starred only\" filter) from the brief alone; no attachments, designs or prior drafts existed. The brief's 7 acceptance criteria were clear and consistent with the app's existing architecture (extend TaskQuery in src/domain/filter.ts), so no material open questions remain. A few non-material UI details (checkbox label text, exact placement) were recorded as explicit assumptions. The spec is ready for human review.",
+  "run_id": "SDLC-10-refinement-20261002T120657Z-d04287",
+  "schema_version": 1,
+  "selected_comment_ids": [],
+  "session_label": "SDLC-10-refinement-20261002T120657Z-d04287",
+  "stage": "refinement",
+  "started_at": "2026-10-02T12:06:57.890479+00:00",
+  "ticket_key": "SDLC-10",
+  "worker_id": "ryan-mac"
+}
