@@ -1,0 +1,106 @@
+{
+  "attempt": 1,
+  "brief_digest": "31d1e4271fe5630c5985f7ef492060defa9afb15f96990947f715eaada8b0550",
+  "candidate_number": 1,
+  "candidate_sha": "fd5338eabb45db7e960655cb4b1c2df8ce90b964",
+  "changed_paths": [
+    "e2e/app.spec.ts",
+    "src/App.test.tsx",
+    "src/App.tsx",
+    "src/domain/filter.test.ts",
+    "src/domain/filter.ts"
+  ],
+  "checks": [],
+  "config_digest": "3caeac9644ff46ed36606e2d6cb3a627e640e94354223a63794f2b266addaf5b",
+  "decision": "success",
+  "evidence": [
+    {
+      "criterion_id": "AC1",
+      "description": "Checkbox labelled 'Starred only' is present and unticked by default.",
+      "path": "src/App.test.tsx",
+      "status": "met"
+    },
+    {
+      "criterion_id": "AC2",
+      "description": "Ticking the checkbox narrows the list to starred tasks only; covered at the domain level and the component level.",
+      "path": "src/domain/filter.test.ts",
+      "status": "met"
+    },
+    {
+      "criterion_id": "AC3",
+      "description": "Status filter and 'Starred only' combine with logical AND; covered at the domain level and the component level.",
+      "path": "src/domain/filter.test.ts",
+      "status": "met"
+    },
+    {
+      "criterion_id": "AC4",
+      "description": "Unstarring a visible task while 'Starred only' is ticked removes it from the list immediately.",
+      "path": "src/App.test.tsx",
+      "status": "met"
+    },
+    {
+      "criterion_id": "AC5",
+      "description": "Combined filters matching nothing show the existing role=status empty-state message, unchanged.",
+      "path": "src/App.test.tsx",
+      "status": "met"
+    },
+    {
+      "criterion_id": "AC6",
+      "description": "'Showing X of Y tasks' X reflects the combined-filter count while Y stays at the total.",
+      "path": "src/App.test.tsx",
+      "status": "met"
+    },
+    {
+      "criterion_id": "AC7",
+      "description": "Checkbox is keyboard-operable (Tab + Space), verified directly; lint, typecheck, unit and build all passed locally. Playwright e2e could not be run in this sandbox (per procedure instructions) \u2014 the extended e2e spec is in place but its pass/fail is for the coordinator to confirm.",
+      "path": "src/App.test.tsx",
+      "status": "unverified"
+    }
+  ],
+  "input_revision": "36b35af814c2d42541b3d9829913a18e05eff744ce2ce2a929615038859e165b",
+  "plugin_digest": "b35c17af500c9f150a42c941c32a189d76084f631ec9eea5076e03f1d2f0bccc",
+  "pr": "https://github.com/Ryanfo/delivery-pilot-app/pull/5",
+  "reason": "Implemented the \"Starred only\" filter exactly per the approved plan: extended `TaskQuery`/`filterTasks` in `src/domain/filter.ts` with `starredOnly`/`starredIds` (combined via AND with status), added the checkbox and wiring in `src/App.tsx`, and added tests covering all seven acceptance criteria in `src/domain/filter.test.ts` and `src/App.test.tsx`, plus extended the Playwright journey in `e2e/app.spec.ts`. Lint, typecheck, unit (21/21) and build all ran clean locally; Playwright e2e cannot launch in this sandbox per the procedure, so its extended spec is left for the coordinator to execute.",
+  "run_id": "SDLC-10-development-20261002T122524Z-26a013",
+  "schema_version": 1,
+  "selected_comment_ids": [
+    "104707"
+  ],
+  "session_label": "SDLC-10-development-20261002T122524Z-26a013",
+  "stage": "development",
+  "started_at": "2026-10-02T12:25:24.595962+00:00",
+  "ticket_key": "SDLC-10",
+  "worker_checks": [
+    {
+      "command": "npm run lint",
+      "name": "lint",
+      "result": "passed",
+      "summary": ""
+    },
+    {
+      "command": "npm run typecheck",
+      "name": "typecheck",
+      "result": "passed",
+      "summary": ""
+    },
+    {
+      "command": "npm run test:unit",
+      "name": "unit",
+      "result": "passed",
+      "summary": "21/21 tests passed across src/storage/starred.test.ts, src/domain/filter.test.ts and src/App.test.tsx."
+    },
+    {
+      "command": "npm run build",
+      "name": "build",
+      "result": "passed",
+      "summary": ""
+    },
+    {
+      "command": "npm run test:e2e",
+      "name": "e2e",
+      "result": "not_run",
+      "summary": "Not run by the worker: Playwright e2e cannot launch inside the macOS sandbox per the procedure's instructions. Left for the coordinator's configured check."
+    }
+  ],
+  "worker_id": "ryan-mac"
+}
