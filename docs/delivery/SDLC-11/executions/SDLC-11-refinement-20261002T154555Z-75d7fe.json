@@ -1,0 +1,20 @@
+{
+  "artefact": "docs/delivery/SDLC-11/specification/v001.md",
+  "attempt": 1,
+  "brief_digest": "5d9c18c6c7a92350f30f8e64cca0f1cfe8463a529a1ec50f8694343b1b21f493",
+  "checks": [],
+  "config_digest": "d8117eb4bb53803f89d93afaa6f2ccf2d606a0a4d1bfa1410787e83b069d5749",
+  "decision": "success",
+  "input_revision": "72d8fdcceece70ef841bc8314a97106ce987a52277bba6ddd42dbe3ffe6bbe27",
+  "plugin_digest": "ca359acdb5596b13690be7d096364e31b0d214b80bf4d45d76814a8301e7578b",
+  "questions": [],
+  "reason": "Specification v001 for 'Search tasks by title' is ready for review. It adds a 'Search' text input to the existing filter controls that narrows the list by task title as the user types; the match ignores case and leading and trailing spaces. Search combines with the Status and Starred only filters, and the existing count line and empty-state message reflect the result. The six brief ACs are now testable given/when/then criteria. Non-material unknowns, such as plain substring matching, spaces-only search not filtering and the input's position in the row, are recorded as assumptions A1-A6 for reviewers to confirm.",
+  "run_id": "SDLC-11-refinement-20261002T154555Z-75d7fe",
+  "schema_version": 1,
+  "selected_comment_ids": [],
+  "session_label": "SDLC-11-refinement-20261002T154555Z-75d7fe",
+  "stage": "refinement",
+  "started_at": "2026-10-02T15:45:55.723043+00:00",
+  "ticket_key": "SDLC-11",
+  "worker_id": "ryan-mac"
+}
