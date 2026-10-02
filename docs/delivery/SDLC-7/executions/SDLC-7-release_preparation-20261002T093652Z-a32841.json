@@ -1,0 +1,21 @@
+{
+  "artefact": "docs/delivery/SDLC-7/releases/v001.md",
+  "attempt": 1,
+  "brief_digest": "bbf3c60d0be44c24fe31a36fbbff2646554cfae200541e98f85c427c8813d375",
+  "checks": [],
+  "config_digest": "1f15e3c328395d0807493ef3e10cdf2567b83bb567c6e8ae69014f8a6972a4df",
+  "decision": "success",
+  "input_revision": "0a957f9eee705e111997afa8ea802a654702e4793cf3766130e72b1e82f42745",
+  "plugin_digest": "a6b171a1077303c82aed4797bdf4da107520857e985471b61ed40a23b013bb29",
+  "reason": "Wrote release.md proposing release of candidate cd4fd56a5932e2671b0267014bbf2532d98e714a, which adds a semantic \"HELLO WORLD\" welcome block to the task list page per the approved specification and plan. Release notes, pre-merge checklist, smoke checks and rollback steps are based on the approved specification, plan, review and verification reports, all of which recorded AC1-AC5 as met with the full check suite (lint, typecheck, unit, build, e2e) passing. No source files were modified.",
+  "run_id": "SDLC-7-release_preparation-20261002T093652Z-a32841",
+  "schema_version": 1,
+  "selected_comment_ids": [
+    "104667"
+  ],
+  "session_label": "SDLC-7-release_preparation-20261002T093652Z-a32841",
+  "stage": "release_preparation",
+  "started_at": "2026-10-02T09:36:52.769971+00:00",
+  "ticket_key": "SDLC-7",
+  "worker_id": "ryan-mac"
+}

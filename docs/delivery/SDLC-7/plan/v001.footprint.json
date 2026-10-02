@@ -1,0 +1,26 @@
+{
+  "actual_commit": null,
+  "actual_paths": [],
+  "components": [
+    "UI: src/App.tsx (task list page)"
+  ],
+  "dependencies": [],
+  "domain_models": [],
+  "interfaces": [],
+  "migrations": [],
+  "owner_account_id": "5b51e9f46a66cf638d2cb417",
+  "paths": [
+    "src/App.tsx",
+    "src/App.test.tsx",
+    "e2e/app.spec.ts"
+  ],
+  "plan_revision": 1,
+  "published_at": "2026-10-02T09:13:26.559499Z",
+  "schema_version": 1,
+  "schemas": [],
+  "sequencing_notes": "No ordering dependency on other tickets; related_work is empty for this run.",
+  "source_commit": "7d3619a7685a11ee29ef87f7ea9c6e2f0b54ca51",
+  "stage": "planning",
+  "ticket_dependencies": [],
+  "ticket_key": "SDLC-7"
+}
