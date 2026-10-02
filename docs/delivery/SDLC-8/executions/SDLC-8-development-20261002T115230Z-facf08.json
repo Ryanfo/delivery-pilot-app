@@ -1,0 +1,115 @@
+{
+  "attempt": 1,
+  "brief_digest": "0b0764a96d6b8ab170427f5b3fda0024eff71a195fdc791ac142dcd2dec007e0",
+  "candidate_number": 1,
+  "candidate_sha": "daa5b3dce72fe0b9d4c3b7919c82179470374836",
+  "changed_paths": [
+    "e2e/styling.spec.ts",
+    "src/App.styling.test.tsx",
+    "src/App.tsx",
+    "src/components/TaskList.tsx",
+    "src/components/useRevealOnScroll.ts",
+    "src/main.tsx",
+    "src/styles.css",
+    "src/styles.test.ts",
+    "tsconfig.json",
+    "vite.config.ts"
+  ],
+  "checks": [],
+  "config_digest": "4fdbc912c8de355cb63dd9a05da2bb21cb58fde0e124e3145d35faf395f1c4f0",
+  "decision": "success",
+  "evidence": [
+    {
+      "criterion_id": "AC1",
+      "description": "Single stylesheet (src/styles.css) defines all colours/spacing/font sizes as :root CSS custom properties; verified by styles.test.ts \"defines design tokens as CSS custom properties in a single stylesheet\" (passed) and App.styling.test.tsx \"renders with no inline style attributes\" (passed, asserts zero [style] attributes in the rendered DOM).",
+      "path": "src/styles.test.ts",
+      "status": "met"
+    },
+    {
+      "criterion_id": "AC2",
+      "description": "Each task <li> is a .task-card with bordered/shadowed, rounded, spaced styling and distinct title/description/meta classes; verified by App.styling.test.tsx \"shows each task as a card with distinct title, description and meta elements\" (passed).",
+      "path": "src/App.styling.test.tsx",
+      "status": "met"
+    },
+    {
+      "criterion_id": "AC3",
+      "description": "Status rendered as a badge span with a per-status class (badge--todo/in_progress/done) and visible status text; verified by App.styling.test.tsx \"gives each status a differently-classed, text-visible badge\" (passed).",
+      "path": "src/App.styling.test.tsx",
+      "status": "met"
+    },
+    {
+      "criterion_id": "AC4",
+      "description": "Badge colour pairs (To do 11.9:1, In progress 8.1:1, Done 8.3:1) and base text (#1a1a1a on #ffffff, >15:1) all clear 4.5:1 by calculation; e2e/styling.spec.ts \"badge and body text meet 4.5:1 contrast\" recomputes this from the live rendered page. Written and type-checked/linted; execution left to the coordinator (browser e2e cannot run in this sandbox).",
+      "path": "e2e/styling.spec.ts",
+      "status": "unverified"
+    },
+    {
+      "criterion_id": "AC5",
+      "description": "A global :focus-visible outline (3px solid, offset) applies to the status select and every star button; e2e/styling.spec.ts \"status filter and star buttons show a focus outline on keyboard focus\" checks this via computed outline-style. Written and type-checked/linted; execution left to the coordinator.",
+      "path": "e2e/styling.spec.ts",
+      "status": "unverified"
+    },
+    {
+      "criterion_id": "AC6",
+      "description": "Centred column capped at max-width 720px with padding, no fixed-width elements; e2e/styling.spec.ts \"page has no horizontal scroll at a 375px viewport\" checks document.documentElement.scrollWidth <= clientWidth. Written and type-checked/linted; execution left to the coordinator.",
+      "path": "e2e/styling.spec.ts",
+      "status": "unverified"
+    },
+    {
+      "criterion_id": "AC7",
+      "description": "No change to src/domain/, src/data/, src/storage/, src/App.test.tsx or e2e/app.spec.ts; all 3 existing App.test.tsx tests plus filter.test.ts and starred.test.ts pass unchanged (18/18 unit tests passed locally). lint, typecheck and build all pass locally; e2e/app.spec.ts execution is left to the coordinator.",
+      "path": "src/App.test.tsx",
+      "status": "met"
+    },
+    {
+      "criterion_id": "AC8",
+      "description": "useRevealOnScroll (IntersectionObserver, reveal-once, visible-immediately fallback when unsupported) drives task-card--visible; CSS prefers-reduced-motion media query forces the final state and removes the transition. e2e/styling.spec.ts \"a below-the-fold card reveals on scroll while every card stays present and reachable\" and \"reveal is suppressed under prefers-reduced-motion: reduce\" cover this. Written and type-checked/linted; execution left to the coordinator.",
+      "path": "e2e/styling.spec.ts",
+      "status": "unverified"
+    }
+  ],
+  "input_revision": "9fd74a3b10131424b54f71b4a669deb6ee2015622ac375a96982b99537795233",
+  "plugin_digest": "6bc46521be16a579d7f29a9a49fce9de27ceba172a6112d084f4dac2cadc8efa",
+  "pr": "https://github.com/Ryanfo/delivery-pilot-app/pull/4",
+  "reason": "Implemented the approved plan: added src/styles.css (CSS custom properties, card/badge/star-button/focus/reduced-motion rules), a useRevealOnScroll hook with IntersectionObserver + no-observer fallback, and wired class names into App.tsx and a new local TaskCard in TaskList.tsx, with no change to existing DOM structure, props or behaviour. Added src/styles.test.ts, src/App.styling.test.tsx and e2e/styling.spec.ts per the plan's criterion-to-test mapping; all existing tests (App.test.tsx, filter.test.ts, starred.test.ts, e2e/app.spec.ts) are untouched and pass. Lint, typecheck, unit tests and build all pass locally; e2e execution is left to the coordinator per the sandbox restriction. One deviation is noted: the specification's \"HELLO WORLD\" welcome block exclusion was written assuming the block didn't exist yet, but SDLC-7 has since merged it into src/App.tsx \u2014 I followed the exclusion as written (no special styling/grouping for it) and documented the now-stale premise in implementation-notes.md.",
+  "run_id": "SDLC-8-development-20261002T115230Z-facf08",
+  "schema_version": 1,
+  "selected_comment_ids": [],
+  "session_label": "SDLC-8-development-20261002T115230Z-facf08",
+  "stage": "development",
+  "started_at": "2026-10-02T11:52:30.210841+00:00",
+  "ticket_key": "SDLC-8",
+  "worker_checks": [
+    {
+      "command": "npm run lint",
+      "name": "lint",
+      "result": "passed",
+      "summary": "eslint . --max-warnings 0 \u2014 no errors or warnings"
+    },
+    {
+      "command": "npm run typecheck",
+      "name": "typecheck",
+      "result": "passed",
+      "summary": "tsc --noEmit -p tsconfig.json \u2014 no errors"
+    },
+    {
+      "command": "npm run test:unit",
+      "name": "unit",
+      "result": "passed",
+      "summary": "vitest run \u2014 5 files, 18/18 tests passed, including all pre-existing tests unchanged"
+    },
+    {
+      "command": "npm run build",
+      "name": "build",
+      "result": "passed",
+      "summary": "tsc --noEmit && vite build \u2014 built successfully, emitted dist/assets/index-*.css and .js"
+    },
+    {
+      "command": "npm run test:e2e",
+      "name": "e2e",
+      "result": "not_run",
+      "summary": "Per the stage contract, browser e2e tests cannot launch in this sandbox on macOS; e2e/styling.spec.ts was written and type-checks/lints cleanly, but execution is left to the coordinator's checks."
+    }
+  ],
+  "worker_id": "ryan-mac"
+}
