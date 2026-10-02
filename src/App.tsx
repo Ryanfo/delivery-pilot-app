@@ -23,9 +23,13 @@ function isStatusFilter(value: string): value is StatusFilter {
 
 export function App({ tasks = TASKS, store = browserStore() }: Props) {
   const [status, setStatus] = useState<StatusFilter>("all");
+  const [starredOnly, setStarredOnly] = useState(false);
   const [starred, setStarred] = useState<Set<string>>(() => loadStarred(store));
 
-  const visible = useMemo(() => sortTasks(filterTasks(tasks, { status })), [tasks, status]);
+  const visible = useMemo(
+    () => sortTasks(filterTasks(tasks, { status, starredOnly, starredIds: starred })),
+    [tasks, status, starredOnly, starred],
+  );
 
   function toggleStar(id: string) {
     setStarred((current) => {
@@ -56,6 +60,13 @@ export function App({ tasks = TASKS, store = browserStore() }: Props) {
             </option>
           ))}
         </select>
+        <label htmlFor="starred-only-filter">Starred only</label>
+        <input
+          id="starred-only-filter"
+          type="checkbox"
+          checked={starredOnly}
+          onChange={(e) => setStarredOnly(e.target.checked)}
+        />
       </div>
       <p aria-live="polite">
         Showing {visible.length} of {tasks.length} tasks · {starred.size} starred
