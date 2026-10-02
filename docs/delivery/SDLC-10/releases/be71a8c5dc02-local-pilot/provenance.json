@@ -1,0 +1,37 @@
+{
+  "checks": [
+    {
+      "base_sha": null,
+      "conclusion": "passed",
+      "duration_seconds": 2.16,
+      "exit_code": 0,
+      "log_path": "/Users/roconnor/.local/state/delivery/runs/SDLC-10/SDLC-10-release_verification-20261002T125559Z-216a1c/logs/release-setup.log",
+      "name": "setup",
+      "producer": "delivery-coordinator",
+      "sha": "be71a8c5dc029f41e237cd248eb3367a040f74e4",
+      "source": "coordinator",
+      "target": "release",
+      "tree_sha": null,
+      "url": null
+    }
+  ],
+  "provenance": {
+    "candidate": "fd5338eabb45db7e960655cb4b1c2df8ce90b964",
+    "merge_commit": "be71a8c5dc029f41e237cd248eb3367a040f74e4",
+    "merged": true,
+    "merged_by": "Ryanfo",
+    "merged_tree_matches_candidate": true,
+    "pr": 5,
+    "pr_head": "fd5338eabb45db7e960655cb4b1c2df8ce90b964",
+    "released": "be71a8c5dc029f41e237cd248eb3367a040f74e4",
+    "released_equals_merge": true,
+    "strategy": "merge commit"
+  },
+  "record": {
+    "comment_id": "104723",
+    "commit": "be71a8c5dc029f41e237cd248eb3367a040f74e4",
+    "environment": "local-pilot",
+    "merged_pr": "5",
+    "recorded_by": "5b51e9f46a66cf638d2cb417"
+  }
+}

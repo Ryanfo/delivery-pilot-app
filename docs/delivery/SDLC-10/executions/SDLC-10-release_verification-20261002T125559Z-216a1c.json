@@ -1,0 +1,42 @@
+{
+  "attempt": 1,
+  "brief_digest": "31d1e4271fe5630c5985f7ef492060defa9afb15f96990947f715eaada8b0550",
+  "checks": [
+    {
+      "base_sha": null,
+      "conclusion": "passed",
+      "duration_seconds": 2.16,
+      "exit_code": 0,
+      "log_path": "/Users/roconnor/.local/state/delivery/runs/SDLC-10/SDLC-10-release_verification-20261002T125559Z-216a1c/logs/release-setup.log",
+      "name": "setup",
+      "producer": "delivery-coordinator",
+      "sha": "be71a8c5dc029f41e237cd248eb3367a040f74e4",
+      "source": "coordinator",
+      "target": "release",
+      "tree_sha": null,
+      "url": null
+    }
+  ],
+  "config_digest": "3caeac9644ff46ed36606e2d6cb3a627e640e94354223a63794f2b266addaf5b",
+  "decision": "success",
+  "input_revision": "3be5e2a1c2f2f881d70e19c1ed943ee38b825e88977ae3f7fbd79d09bf982331",
+  "plugin_digest": "b35c17af500c9f150a42c941c32a189d76084f631ec9eea5076e03f1d2f0bccc",
+  "reason": "Verified the release record: released commit be71a8c is the exact merge of the accepted candidate fd5338e (PR #5), with no tree drift. Ran lint, typecheck, unit tests (21/21 passed, including all seven AC component tests) and build directly on the released commit, all clean. Browser e2e could not be run in this sandbox, and this run's coordinator_checks.json/check-logs only contain a setup entry with no candidate/integration e2e results to cite, so AC7's \"all checks pass\" and the browser-driven smoke steps (AC1-AC7 end-to-end) remain unverified by browser evidence pending that log, flagged as a major finding.",
+  "release": {
+    "comment_id": "104723",
+    "commit": "be71a8c5dc029f41e237cd248eb3367a040f74e4",
+    "environment": "local-pilot",
+    "merged_pr": "5",
+    "recorded_by": "5b51e9f46a66cf638d2cb417"
+  },
+  "run_id": "SDLC-10-release_verification-20261002T125559Z-216a1c",
+  "schema_version": 1,
+  "selected_comment_ids": [
+    "104723"
+  ],
+  "session_label": "SDLC-10-release_verification-20261002T125559Z-216a1c",
+  "stage": "release_verification",
+  "started_at": "2026-10-02T12:55:59.733544+00:00",
+  "ticket_key": "SDLC-10",
+  "worker_id": "ryan-mac"
+}
