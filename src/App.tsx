@@ -38,8 +38,8 @@ export function App({ tasks = TASKS, store = browserStore() }: Props) {
   }
 
   return (
-    <main>
-      <h1>Task list</h1>
+    <main className="page">
+      <h1 className="page-heading">Task list</h1>
       <section aria-label="Welcome">HELLO WORLD</section>
       <div className="controls">
         <label htmlFor="status-filter">Status</label>
@@ -57,7 +57,7 @@ export function App({ tasks = TASKS, store = browserStore() }: Props) {
           ))}
         </select>
       </div>
-      <p aria-live="polite">
+      <p className="live-status" aria-live="polite">
         Showing {visible.length} of {tasks.length} tasks · {starred.size} starred
       </p>
       <TaskList tasks={visible} starred={starred} onToggleStar={toggleStar} />
