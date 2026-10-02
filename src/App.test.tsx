@@ -111,4 +111,89 @@ describe("App", () => {
     await user.keyboard(" ");
     expect(checkbox).not.toBeChecked();
   });
+
+  describe("search", () => {
+    const listItems = () => within(screen.getByRole("list", { name: "Tasks" })).getAllByRole("listitem");
+    const searchBox = () => screen.getByRole("textbox", { name: "Search" });
+
+    it("shows an empty, labelled Search input in the filter controls row (search AC1)", () => {
+      render(<App store={memory()} />);
+      const search = searchBox();
+      expect(search).toHaveValue("");
+      expect(search.closest(".controls")).not.toBeNull();
+      expect(search.closest(".controls")).toBe(screen.getByLabelText("Status").closest(".controls"));
+      expect(listItems()).toHaveLength(TASKS.length);
+    });
+
+    it("reaches the Search input by keyboard after the other controls (search AC1)", async () => {
+      const user = userEvent.setup();
+      render(<App store={memory()} />);
+      screen.getByRole("checkbox", { name: "Starred only" }).focus();
+      await user.tab();
+      expect(searchBox()).toHaveFocus();
+      await user.keyboard("rota");
+      expect(listItems()).toHaveLength(1);
+      expect(listItems()[0]).toHaveTextContent("Update support rota");
+    });
+
+    it("filters by title as the user types, ignoring case and surrounding spaces (search AC2)", async () => {
+      const user = userEvent.setup();
+      render(<App store={memory()} />);
+      await user.type(searchBox(), "  ROTA ");
+      expect(listItems()).toHaveLength(1);
+      expect(listItems()[0]).toHaveTextContent("Update support rota");
+    });
+
+    it("combines Search with Status and Starred only (search AC3)", async () => {
+      const user = userEvent.setup();
+      render(<App store={memory()} />);
+      await user.type(searchBox(), "re");
+      await user.selectOptions(screen.getByLabelText("Status"), "in_progress");
+      expect(listItems().map((li) => within(li).getByRole("heading").textContent)).toEqual([
+        "Prepare demo environment",
+        "Review quarterly roadmap",
+      ]);
+      await user.click(screen.getByRole("button", { name: "Star Review quarterly roadmap" }));
+      await user.click(screen.getByRole("checkbox", { name: "Starred only" }));
+      expect(listItems()).toHaveLength(1);
+      await user.selectOptions(screen.getByLabelText("Status"), "all");
+      expect(listItems()).toHaveLength(1);
+      expect(listItems()[0]).toHaveTextContent("Review quarterly roadmap");
+    });
+
+    it("counts only tasks the search leaves visible, keeping total and starred counts (search AC4)", async () => {
+      const user = userEvent.setup();
+      const { container } = render(<App store={memory()} />);
+      await user.click(screen.getByRole("button", { name: "Star Draft onboarding checklist" }));
+      await user.type(searchBox(), "rota");
+      expect(container.querySelector('[aria-live="polite"]')).toHaveTextContent(
+        `Showing 1 of ${TASKS.length} tasks · 1 starred`,
+      );
+    });
+
+    it("shows the existing empty message and a zero count when the search matches nothing (search AC5)", async () => {
+      const user = userEvent.setup();
+      render(<App store={memory()} />);
+      await user.type(searchBox(), "zzz");
+      expect(screen.getByRole("status")).toHaveTextContent("No tasks match the current filter.");
+      expect(screen.getByText(`Showing 0 of ${TASKS.length} tasks`, { exact: false })).toBeInTheDocument();
+      await user.clear(searchBox());
+      await user.type(searchBox(), "rota");
+      await user.selectOptions(screen.getByLabelText("Status"), "todo");
+      expect(screen.getByRole("status")).toHaveTextContent("No tasks match the current filter.");
+    });
+
+    it("restores the tasks allowed by the other filters when Search is cleared or blank (search AC6)", async () => {
+      const user = userEvent.setup();
+      render(<App store={memory()} />);
+      await user.selectOptions(screen.getByLabelText("Status"), "done");
+      await user.type(searchBox(), "rota");
+      expect(listItems()).toHaveLength(1);
+      await user.clear(searchBox());
+      expect(listItems()).toHaveLength(3);
+      expect(screen.getByText(`Showing 3 of ${TASKS.length} tasks`, { exact: false })).toBeInTheDocument();
+      await user.type(searchBox(), "   ");
+      expect(listItems()).toHaveLength(3);
+    });
+  });
 });
