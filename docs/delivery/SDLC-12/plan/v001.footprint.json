@@ -1,0 +1,26 @@
+{
+  "actual_commit": null,
+  "actual_paths": [],
+  "components": [
+    "App (page heading)"
+  ],
+  "dependencies": [],
+  "domain_models": [],
+  "interfaces": [],
+  "migrations": [],
+  "owner_account_id": "5b51e9f46a66cf638d2cb417",
+  "paths": [
+    "src/App.tsx",
+    "src/App.test.tsx",
+    "e2e/app.spec.ts"
+  ],
+  "plan_revision": 1,
+  "published_at": "2026-10-02T15:45:50.221203Z",
+  "schema_version": 1,
+  "schemas": [],
+  "sequencing_notes": "Self-contained text change with no ordering constraints. Any ticket that asserts on the page heading text (\"Task list\") in tests should be rebased after this one.",
+  "source_commit": "be71a8c5dc029f41e237cd248eb3367a040f74e4",
+  "stage": "planning",
+  "ticket_dependencies": [],
+  "ticket_key": "SDLC-12"
+}
