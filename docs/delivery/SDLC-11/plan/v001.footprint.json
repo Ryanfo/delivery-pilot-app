@@ -1,0 +1,33 @@
+{
+  "actual_commit": null,
+  "actual_paths": [],
+  "components": [
+    "domain (filterTasks / TaskQuery)",
+    "ui (App filter controls)",
+    "e2e"
+  ],
+  "dependencies": [],
+  "domain_models": [],
+  "interfaces": [
+    "TaskQuery (src/domain/filter.ts): adds optional readonly search?: string",
+    "filterTasks(tasks, query) (src/domain/filter.ts): adds title search clause, signature unchanged"
+  ],
+  "migrations": [],
+  "owner_account_id": "5b51e9f46a66cf638d2cb417",
+  "paths": [
+    "src/domain/filter.ts",
+    "src/domain/filter.test.ts",
+    "src/App.tsx",
+    "src/App.test.tsx",
+    "e2e/app.spec.ts"
+  ],
+  "plan_revision": 1,
+  "published_at": "2026-10-02T15:55:32.381348Z",
+  "schema_version": 1,
+  "schemas": [],
+  "sequencing_notes": "Shares src/App.tsx, src/App.test.tsx and e2e/app.spec.ts with SDLC-12 (heading text change, in Code review). There is no hard dependency, but rebase feature/SDLC-11 onto main after SDLC-12 merges and rerun the checks. New SDLC-11 tests do not assert the page heading. Any later ticket that extends TaskQuery should build on the optional `search` field added here.",
+  "source_commit": "be71a8c5dc029f41e237cd248eb3367a040f74e4",
+  "stage": "planning",
+  "ticket_dependencies": [],
+  "ticket_key": "SDLC-11"
+}

@@ -1,0 +1,46 @@
+{
+  "artefact": "docs/delivery/SDLC-11/plan/v001.md",
+  "attempt": 1,
+  "brief_digest": "5d9c18c6c7a92350f30f8e64cca0f1cfe8463a529a1ec50f8694343b1b21f493",
+  "checks": [],
+  "config_digest": "d8117eb4bb53803f89d93afaa6f2ccf2d606a0a4d1bfa1410787e83b069d5749",
+  "decision": "success",
+  "input_revision": "2eff9f0da872fc94193a94ad2f2c93aba14ff8be9eb8fbbfdc9af8787d81a050",
+  "overlap": [
+    {
+      "details": [
+        "e2e/app.spec.ts",
+        "src/App.test.tsx",
+        "src/App.tsx"
+      ],
+      "kind": "same_path",
+      "other": "SDLC-12",
+      "other_assignee": "Ryan O'Connor",
+      "revisions": {
+        "SDLC-11": {
+          "commit": "be71a8c5dc029f41e237cd248eb3367a040f74e4",
+          "plan": 1
+        },
+        "SDLC-12": {
+          "commit": "2009e68b23cb9f08c979a5c6f192e7c029f35fc3",
+          "plan": 1
+        }
+      },
+      "severity": "warn",
+      "ticket": "SDLC-11",
+      "warning_id": "OVL-4a6cabd354"
+    }
+  ],
+  "plugin_digest": "ca359acdb5596b13690be7d096364e31b0d214b80bf4d45d76814a8301e7578b",
+  "reason": "Plan v1 adds an optional `search` field to `TaskQuery`. `filterTasks` trims and lower-cases it and matches it as a substring of the title, combined with the existing Status and Starred only filters. `App` holds the search in React state and renders a labelled `type=\"text\"` Search input in the existing controls row. The existing count line and empty state already use the filtered list. Every AC maps to named unit, component and e2e tests. There are no new dependencies, storage or migrations. SDLC-12 (Code review) touches the same three UI and test files. The new tests avoid heading assertions, and the branch should be rebased after SDLC-12 merges.",
+  "run_id": "SDLC-11-planning-20261002T155334Z-713ef4",
+  "schema_version": 1,
+  "selected_comment_ids": [
+    "104771"
+  ],
+  "session_label": "SDLC-11-planning-20261002T155334Z-713ef4",
+  "stage": "planning",
+  "started_at": "2026-10-02T15:53:34.779074+00:00",
+  "ticket_key": "SDLC-11",
+  "worker_id": "ryan-mac"
+}
