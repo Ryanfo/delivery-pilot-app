@@ -45,4 +45,70 @@ describe("App", () => {
     render(<App store={store} />);
     expect(screen.getByRole("button", { name: "Unstar Draft onboarding checklist" })).toBeInTheDocument();
   });
+
+  it("shows a 'Starred only' checkbox, labelled and unticked by default (AC1)", () => {
+    render(<App store={memory()} />);
+    const checkbox = screen.getByRole("checkbox", { name: "Starred only" });
+    expect(checkbox).toBeInTheDocument();
+    expect(checkbox).not.toBeChecked();
+  });
+
+  it("narrows the list to starred tasks only when ticked (AC2)", async () => {
+    const user = userEvent.setup();
+    render(<App store={memory()} />);
+    await user.click(screen.getByRole("button", { name: "Star Draft onboarding checklist" }));
+    await user.click(screen.getByRole("checkbox", { name: "Starred only" }));
+    const items = within(screen.getByRole("list", { name: "Tasks" })).getAllByRole("listitem");
+    expect(items).toHaveLength(1);
+    expect(items[0]).toHaveTextContent("Draft onboarding checklist");
+  });
+
+  it("combines 'Starred only' with the status filter (AC3)", async () => {
+    const user = userEvent.setup();
+    render(<App store={memory()} />);
+    await user.click(screen.getByRole("button", { name: "Star Review quarterly roadmap" }));
+    await user.click(screen.getByRole("button", { name: "Star Draft onboarding checklist" }));
+    await user.click(screen.getByRole("checkbox", { name: "Starred only" }));
+    await user.selectOptions(screen.getByLabelText("Status"), "in_progress");
+    const items = within(screen.getByRole("list", { name: "Tasks" })).getAllByRole("listitem");
+    expect(items).toHaveLength(1);
+    expect(items[0]).toHaveTextContent("Review quarterly roadmap");
+  });
+
+  it("removes an unstarred task immediately while 'Starred only' is ticked (AC4)", async () => {
+    const user = userEvent.setup();
+    render(<App store={memory()} />);
+    await user.click(screen.getByRole("button", { name: "Star Draft onboarding checklist" }));
+    await user.click(screen.getByRole("checkbox", { name: "Starred only" }));
+    expect(screen.getByRole("list", { name: "Tasks" })).toBeInTheDocument();
+    await user.click(screen.getByRole("button", { name: "Unstar Draft onboarding checklist" }));
+    expect(screen.getByRole("status")).toHaveTextContent("No tasks match the current filter.");
+  });
+
+  it("shows the empty-state message when the combined filters match nothing (AC5)", async () => {
+    const user = userEvent.setup();
+    render(<App store={memory()} />);
+    await user.click(screen.getByRole("checkbox", { name: "Starred only" }));
+    expect(screen.getByRole("status")).toHaveTextContent("No tasks match the current filter.");
+  });
+
+  it("updates the 'Showing X of Y tasks' count for the combined filter (AC6)", async () => {
+    const user = userEvent.setup();
+    render(<App store={memory()} />);
+    await user.click(screen.getByRole("button", { name: "Star Draft onboarding checklist" }));
+    await user.click(screen.getByRole("button", { name: "Star Review quarterly roadmap" }));
+    await user.click(screen.getByRole("checkbox", { name: "Starred only" }));
+    expect(screen.getByText(`Showing 2 of ${TASKS.length} tasks`, { exact: false })).toBeInTheDocument();
+  });
+
+  it("toggles the 'Starred only' checkbox via keyboard focus and Space (AC7)", async () => {
+    const user = userEvent.setup();
+    render(<App store={memory()} />);
+    const checkbox = screen.getByRole("checkbox", { name: "Starred only" });
+    checkbox.focus();
+    await user.keyboard(" ");
+    expect(checkbox).toBeChecked();
+    await user.keyboard(" ");
+    expect(checkbox).not.toBeChecked();
+  });
 });
