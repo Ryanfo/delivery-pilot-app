@@ -2,7 +2,8 @@ import { expect, test } from "@playwright/test";
 
 test("filters tasks and persists a starred task across reloads", async ({ page }) => {
   await page.goto("/");
-  await expect(page.getByRole("heading", { name: "Task list" })).toBeVisible();
+  await expect(page.getByRole("heading", { level: 1, name: "My tasks", exact: true })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Task list" })).toHaveCount(0);
   await expect(page.getByRole("region", { name: "Welcome" })).toHaveText("HELLO WORLD");
   await page.getByLabel("Status").selectOption("done");
   await expect(page.getByRole("list", { name: "Tasks" }).getByRole("listitem")).toHaveCount(3);
