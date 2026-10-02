@@ -111,4 +111,28 @@ describe("App", () => {
     await user.keyboard(" ");
     expect(checkbox).not.toBeChecked();
   });
+
+  it("shows a single level-1 heading reading exactly 'My tasks' (SDLC-12 AC1)", () => {
+    render(<App store={memory()} />);
+    expect(screen.getAllByRole("heading", { level: 1 })).toHaveLength(1);
+    expect(screen.getByRole("heading", { level: 1, name: "My tasks" })).toBeInTheDocument();
+  });
+
+  it("no longer shows 'Task list' as a page heading (SDLC-12 AC2)", () => {
+    render(<App store={memory()} />);
+    expect(screen.queryByRole("heading", { name: /task list/i })).not.toBeInTheDocument();
+  });
+
+  it("keeps the welcome block, filters, count line and task list unchanged (SDLC-12 AC3)", () => {
+    render(<App store={memory()} />);
+    expect(screen.getByRole("region", { name: "Welcome" })).toHaveTextContent("HELLO WORLD");
+    expect(screen.getByRole("combobox", { name: "Status" })).toBeInTheDocument();
+    expect(screen.getByRole("checkbox", { name: "Starred only" })).not.toBeChecked();
+    expect(
+      screen.getByText(`Showing ${TASKS.length} of ${TASKS.length} tasks · 0 starred`),
+    ).toBeInTheDocument();
+    expect(within(screen.getByRole("list", { name: "Tasks" })).getAllByRole("listitem")).toHaveLength(
+      TASKS.length,
+    );
+  });
 });
