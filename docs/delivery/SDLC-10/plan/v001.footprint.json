@@ -1,0 +1,34 @@
+{
+  "actual_commit": null,
+  "actual_paths": [],
+  "components": [
+    "Domain: src/domain/filter.ts (TaskQuery, filterTasks)",
+    "UI: src/App.tsx (task list page, status + starred-only controls)"
+  ],
+  "dependencies": [],
+  "domain_models": [
+    "TaskQuery"
+  ],
+  "interfaces": [
+    "TaskQuery (src/domain/filter.ts): adds required starredOnly: boolean and starredIds: ReadonlySet<string>",
+    "filterTasks(tasks, query) (src/domain/filter.ts): applies status AND starredOnly/starredIds predicate"
+  ],
+  "migrations": [],
+  "owner_account_id": "5b51e9f46a66cf638d2cb417",
+  "paths": [
+    "src/domain/filter.ts",
+    "src/domain/filter.test.ts",
+    "src/App.tsx",
+    "src/App.test.tsx",
+    "e2e/app.spec.ts"
+  ],
+  "plan_revision": 1,
+  "published_at": "2026-10-02T12:15:28.020228Z",
+  "schema_version": 1,
+  "schemas": [],
+  "sequencing_notes": "No ordering dependency on other tickets; related_work is empty for this run. TaskQuery's two call sites (src/App.tsx, src/domain/filter.test.ts) are both updated in this same change to avoid a broken intermediate state.",
+  "source_commit": "15865a54b0593b1de41bd722819801325e49a118",
+  "stage": "planning",
+  "ticket_dependencies": [],
+  "ticket_key": "SDLC-10"
+}

@@ -1,0 +1,22 @@
+{
+  "artefact": "docs/delivery/SDLC-10/plan/v001.md",
+  "attempt": 1,
+  "brief_digest": "31d1e4271fe5630c5985f7ef492060defa9afb15f96990947f715eaada8b0550",
+  "checks": [],
+  "config_digest": "3caeac9644ff46ed36606e2d6cb3a627e640e94354223a63794f2b266addaf5b",
+  "decision": "success",
+  "input_revision": "8e223f81aa2b29c0ca020395bd074d23d9281446837dc4e5577561c96ad0e2c2",
+  "overlap": [],
+  "plugin_digest": "b35c17af500c9f150a42c941c32a189d76084f631ec9eea5076e03f1d2f0bccc",
+  "reason": "Plan extends the pure TaskQuery/filterTasks function in src/domain/filter.ts with starredOnly and starredIds fields, combined with the existing status predicate by logical AND, per the architecture's documented extension point. App.tsx gets a new starredOnly state and a \"Starred only\" checkbox in the existing .controls block, wired into the same filterTasks call that already drives the list, count and empty state, so no changes are needed to TaskList.tsx. All five affected files (filter.ts, filter.test.ts, App.tsx, App.test.tsx, e2e/app.spec.ts) and their test coverage are mapped one-to-one against AC1\u2013AC7. No new dependencies, no architectural decision needed, and related_work is empty so there is no coordination conflict.",
+  "run_id": "SDLC-10-planning-20261002T121326Z-6c375c",
+  "schema_version": 1,
+  "selected_comment_ids": [
+    "104704"
+  ],
+  "session_label": "SDLC-10-planning-20261002T121326Z-6c375c",
+  "stage": "planning",
+  "started_at": "2026-10-02T12:13:26.670863+00:00",
+  "ticket_key": "SDLC-10",
+  "worker_id": "ryan-mac"
+}
