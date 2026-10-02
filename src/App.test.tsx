@@ -10,6 +10,11 @@ function memory(): KeyValueStore {
 }
 
 describe("App", () => {
+  it("shows the welcome block with the exact text HELLO WORLD", () => {
+    render(<App store={memory()} />);
+    expect(screen.getByRole("region", { name: "Welcome" })).toHaveTextContent("HELLO WORLD");
+  });
+
   it("lists every task with a labelled status filter", () => {
     render(<App store={memory()} />);
     expect(screen.getByLabelText("Status")).toBeInTheDocument();
