@@ -68,8 +68,14 @@ export function App({ tasks = TASKS, store = browserStore() }: Props) {
           checked={starredOnly}
           onChange={(e) => setStarredOnly(e.target.checked)}
         />
-        <label htmlFor="search-filter">Search</label>
-        <input id="search-filter" type="search" value={search} onChange={(e) => setSearch(e.target.value)} />
+        <input
+          id="search-filter"
+          type="search"
+          aria-label="Search"
+          placeholder="Search"
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+        />
       </div>
       <p aria-live="polite">
         Showing {visible.length} of {tasks.length} tasks · {starred.size} starred

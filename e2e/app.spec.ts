@@ -33,6 +33,7 @@ test("searches tasks by title combined with other filters", async ({ page }) => 
   const items = page.getByRole("list", { name: "Tasks" }).getByRole("listitem");
   await expect(search).toBeVisible();
   await expect(search).toHaveValue("");
+  await expect(search).toHaveAttribute("placeholder", "Search");
 
   await search.fill("REVIEW");
   await expect(items).toHaveCount(1);

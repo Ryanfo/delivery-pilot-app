@@ -116,6 +116,7 @@ describe("App", () => {
     render(<App store={memory()} />);
     const search = screen.getByRole("searchbox", { name: "Search" });
     expect(search).toHaveValue("");
+    expect(search).toHaveAttribute("placeholder", "Search");
     expect(search.parentElement).toBe(screen.getByLabelText("Status").parentElement);
     expect(search.parentElement).toBe(screen.getByRole("checkbox", { name: "Starred only" }).parentElement);
     expect(within(screen.getByRole("list", { name: "Tasks" })).getAllByRole("listitem")).toHaveLength(
