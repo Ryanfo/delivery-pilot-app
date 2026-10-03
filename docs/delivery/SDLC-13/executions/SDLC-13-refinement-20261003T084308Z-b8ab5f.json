@@ -1,0 +1,20 @@
+{
+  "artefact": "docs/delivery/SDLC-13/specification/v001.md",
+  "attempt": 1,
+  "brief_digest": "209ca4ebaa7b71bcbcb0a3aadc003c0f657b490ee6265c7b403da9e3a77d11d2",
+  "checks": [],
+  "config_digest": "c7657d914664ee8b2be5bad834ddf5c5e918cfaef7bb0c9a74fef3c77e66a0fc",
+  "decision": "success",
+  "input_revision": "f555dbd8805de68a8e621d5620ece6e51c5f8b9511a6d429f4f9a89e0aedac5c",
+  "plugin_digest": "59e0585563bbb3bc2e462ae4defc0f88bf62efedcae9df26abe34e4179174f6e",
+  "questions": [],
+  "reason": "Specification v001 for title search is ready for review. It keeps the brief's AC1 to AC6, adds testable detail and examples based on the fixture tasks, and describes the current filter, count line and empty-state behaviour at be71a8c. Minor unknowns are recorded as assumptions A1 to A8 (for example, Y and the starred count stay totals, a search of only spaces counts as empty, no accent folding, and the existing sort order is kept). There are no open questions, and no attachments or designs were provided.",
+  "run_id": "SDLC-13-refinement-20261003T084308Z-b8ab5f",
+  "schema_version": 1,
+  "selected_comment_ids": [],
+  "session_label": "SDLC-13-refinement-20261003T084308Z-b8ab5f",
+  "stage": "refinement",
+  "started_at": "2026-10-03T08:43:08.541778+00:00",
+  "ticket_key": "SDLC-13",
+  "worker_id": "ryan-mac"
+}
