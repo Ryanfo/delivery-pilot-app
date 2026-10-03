@@ -25,10 +25,11 @@ export function App({ tasks = TASKS, store = browserStore() }: Props) {
   const [status, setStatus] = useState<StatusFilter>("all");
   const [starredOnly, setStarredOnly] = useState(false);
   const [starred, setStarred] = useState<Set<string>>(() => loadStarred(store));
+  const [search, setSearch] = useState("");
 
   const visible = useMemo(
-    () => sortTasks(filterTasks(tasks, { status, starredOnly, starredIds: starred })),
-    [tasks, status, starredOnly, starred],
+    () => sortTasks(filterTasks(tasks, { status, starredOnly, starredIds: starred, search })),
+    [tasks, status, starredOnly, starred, search],
   );
 
   function toggleStar(id: string) {
@@ -66,6 +67,14 @@ export function App({ tasks = TASKS, store = browserStore() }: Props) {
           type="checkbox"
           checked={starredOnly}
           onChange={(e) => setStarredOnly(e.target.checked)}
+        />
+        <input
+          id="search-filter"
+          type="search"
+          aria-label="Search"
+          placeholder="Search"
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
         />
       </div>
       <p aria-live="polite">
