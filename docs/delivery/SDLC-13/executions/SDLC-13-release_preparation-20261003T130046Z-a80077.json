@@ -1,0 +1,21 @@
+{
+  "artefact": "docs/delivery/SDLC-13/releases/v001.md",
+  "attempt": 1,
+  "brief_digest": "209ca4ebaa7b71bcbcb0a3aadc003c0f657b490ee6265c7b403da9e3a77d11d2",
+  "checks": [],
+  "config_digest": "c7657d914664ee8b2be5bad834ddf5c5e918cfaef7bb0c9a74fef3c77e66a0fc",
+  "decision": "success",
+  "input_revision": "ff2ab19032da200e37e6f507d068c2e072053c549aab1f02cd00efdc3d9b582b",
+  "plugin_digest": "4e296e9e8f1247920c4888fa9b93133ebfbdbfa0f37852e3fad8bbea966fbfe8",
+  "reason": "Release proposal v1 for SDLC-13 (search tasks by title) for accepted candidate 03eaed98fb20ed054cf6d10a563b7d252dee9659 on the local-pilot profile. It contains user-facing release notes, a pre-merge checklist, 15 smoke steps that cover AC1 to AC6, title-only scope and no persistence, and a revert-based rollback that needs no data cleanup. The pre-merge checklist carries forward the one open minor item, placeholder WCAG AA contrast (review/verification F1), for a human to check and decide. Note 104845 (placeholder instead of label) is already in approved spec v002; the release notes describe it as the approved exception for the Search input only.",
+  "run_id": "SDLC-13-release_preparation-20261003T130046Z-a80077",
+  "schema_version": 1,
+  "selected_comment_ids": [
+    "104859"
+  ],
+  "session_label": "SDLC-13-release_preparation-20261003T130046Z-a80077",
+  "stage": "release_preparation",
+  "started_at": "2026-10-03T13:00:46.294897+00:00",
+  "ticket_key": "SDLC-13",
+  "worker_id": "ryan-mac"
+}
