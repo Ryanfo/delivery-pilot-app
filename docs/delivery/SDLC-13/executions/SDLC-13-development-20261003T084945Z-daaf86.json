@@ -1,0 +1,100 @@
+{
+  "attempt": 1,
+  "brief_digest": "209ca4ebaa7b71bcbcb0a3aadc003c0f657b490ee6265c7b403da9e3a77d11d2",
+  "candidate_number": 1,
+  "candidate_sha": "bcc5ae8583a1d3f22e64be0589e0ea888713e243",
+  "changed_paths": [
+    "e2e/app.spec.ts",
+    "src/App.test.tsx",
+    "src/App.tsx",
+    "src/domain/filter.test.ts",
+    "src/domain/filter.ts"
+  ],
+  "checks": [],
+  "config_digest": "c7657d914664ee8b2be5bad834ddf5c5e918cfaef7bb0c9a74fef3c77e66a0fc",
+  "decision": "success",
+  "evidence": [
+    {
+      "criterion_id": "AC1",
+      "description": "src/App.test.tsx \"shows an empty 'Search' input in the controls with the other filters (SDLC-13 AC1)\" and \"reaches the Search input with Tab and types into it (SDLC-13 AC1)\" passed. The e2e test \"searches tasks by title combined with other filters\" was written but not run locally.",
+      "path": "src/App.test.tsx",
+      "status": "met"
+    },
+    {
+      "criterion_id": "AC2",
+      "description": "src/domain/filter.test.ts matchesSearch tests (empty, whitespace-only, ignores case, trims surrounding spaces, internal spaces literal, regex characters as plain text) and filterTasks \"filters by title search ignoring case\" / \"returns every title containing the search\" passed, as did src/App.test.tsx \"filters the list by title as the user types, ignoring case and surrounding spaces (SDLC-13 AC2)\".",
+      "path": "src/domain/filter.test.ts",
+      "status": "met"
+    },
+    {
+      "criterion_id": "AC3",
+      "description": "src/domain/filter.test.ts \"combines search with status and starredOnly\" and src/App.test.tsx \"combines Search with Status and Starred only, keeping each filter's value (SDLC-13 AC3)\" passed.",
+      "path": "src/App.test.tsx",
+      "status": "met"
+    },
+    {
+      "criterion_id": "AC4",
+      "description": "src/App.test.tsx \"counts only the tasks the search leaves visible (SDLC-13 AC4)\" passed. It asserts \"Showing 1 of 12 tasks \u00b7 1 starred\" in the aria-live=\"polite\" paragraph.",
+      "path": "src/App.test.tsx",
+      "status": "met"
+    },
+    {
+      "criterion_id": "AC5",
+      "description": "src/App.test.tsx \"shows the existing empty-state message when the search matches nothing (SDLC-13 AC5)\" passed.",
+      "path": "src/App.test.tsx",
+      "status": "met"
+    },
+    {
+      "criterion_id": "AC6",
+      "description": "src/App.test.tsx \"shows the tasks again when the search is cleared or left with only spaces (SDLC-13 AC6)\" passed.",
+      "path": "src/App.test.tsx",
+      "status": "met"
+    }
+  ],
+  "input_revision": "399dc47cbefe9cbf811ed3040462f522d60f636402c6200a06f993849f37cd77",
+  "plugin_digest": "59e0585563bbb3bc2e462ae4defc0f88bf62efedcae9df26abe34e4179174f6e",
+  "pr": "https://github.com/Ryanfo/delivery-pilot-app/pull/8",
+  "reason": "Implemented title search as planned. TaskQuery in src/domain/filter.ts now has a required `search` field and a pure exported `matchesSearch(title, search)` (trimmed, lowercased, substring match with String.includes) that filterTasks ANDs with the status and starred filters. App holds the search in memory and renders a labelled `<input id=\"search-filter\" type=\"search\">` as the last control in the existing controls row; the count line and empty state are unchanged and derive from the same filtered list. Added unit tests (matchesSearch, filterTasks with search), component tests for SDLC-13 AC1\u2013AC6 and a new Playwright journey test. The only change to existing tests is adding `search: \"\"` to their TaskQuery literals (some lines were rewrapped), with no assertion changes. There were no feedback items or notes for this run.",
+  "run_id": "SDLC-13-development-20261003T084945Z-daaf86",
+  "schema_version": 1,
+  "selected_comment_ids": [
+    "104837"
+  ],
+  "session_label": "SDLC-13-development-20261003T084945Z-daaf86",
+  "stage": "development",
+  "started_at": "2026-10-03T08:49:45.412655+00:00",
+  "ticket_key": "SDLC-13",
+  "worker_checks": [
+    {
+      "command": "npm run lint",
+      "name": "lint",
+      "result": "passed",
+      "summary": "No warnings or errors."
+    },
+    {
+      "command": "npm run typecheck",
+      "name": "typecheck",
+      "result": "passed",
+      "summary": "tsc --noEmit clean."
+    },
+    {
+      "command": "npm run test:unit",
+      "name": "unit",
+      "result": "passed",
+      "summary": "3 files, 38 tests passed."
+    },
+    {
+      "command": "npm run build",
+      "name": "build",
+      "result": "passed",
+      "summary": "vite build succeeded."
+    },
+    {
+      "command": "npm run test:e2e",
+      "name": "e2e",
+      "result": "not_run",
+      "summary": "Browsers cannot launch inside the sandbox; left to the coordinator."
+    }
+  ],
+  "worker_id": "ryan-mac"
+}
