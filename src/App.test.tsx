@@ -111,4 +111,95 @@ describe("App", () => {
     await user.keyboard(" ");
     expect(checkbox).not.toBeChecked();
   });
+
+  it("shows an empty 'Search' input in the controls with the other filters (SDLC-13 AC1)", () => {
+    render(<App store={memory()} />);
+    const search = screen.getByRole("searchbox", { name: "Search" });
+    expect(search).toHaveValue("");
+    expect(search.parentElement).toBe(screen.getByLabelText("Status").parentElement);
+    expect(search.parentElement).toBe(screen.getByRole("checkbox", { name: "Starred only" }).parentElement);
+    expect(within(screen.getByRole("list", { name: "Tasks" })).getAllByRole("listitem")).toHaveLength(
+      TASKS.length,
+    );
+  });
+
+  it("reaches the Search input with Tab and types into it (SDLC-13 AC1)", async () => {
+    const user = userEvent.setup();
+    render(<App store={memory()} />);
+    const search = screen.getByRole("searchbox", { name: "Search" });
+    expect(search).not.toHaveFocus();
+    screen.getByRole("checkbox", { name: "Starred only" }).focus();
+    await user.tab();
+    expect(search).toHaveFocus();
+    await user.keyboard("review");
+    expect(search).toHaveValue("review");
+  });
+
+  it("filters the list by title as the user types, ignoring case and surrounding spaces (SDLC-13 AC2)", async () => {
+    const user = userEvent.setup();
+    render(<App store={memory()} />);
+    const search = screen.getByRole("searchbox", { name: "Search" });
+    const items = () => within(screen.getByRole("list", { name: "Tasks" })).getAllByRole("listitem");
+
+    await user.type(search, "REVIEW");
+    expect(items()).toHaveLength(1);
+    expect(items()[0]).toHaveTextContent("Review quarterly roadmap");
+
+    await user.clear(search);
+    await user.type(search, "  review  ");
+    expect(items()).toHaveLength(1);
+    expect(items()[0]).toHaveTextContent("Review quarterly roadmap");
+
+    await user.clear(search);
+    await user.type(search, "re");
+    expect(items()).toHaveLength(6);
+  });
+
+  it("combines Search with Status and Starred only, keeping each filter's value (SDLC-13 AC3)", async () => {
+    const user = userEvent.setup();
+    render(<App store={memory()} />);
+    const items = () => within(screen.getByRole("list", { name: "Tasks" })).getAllByRole("listitem");
+    await user.click(screen.getByRole("button", { name: "Star Review quarterly roadmap" }));
+    await user.type(screen.getByRole("searchbox", { name: "Search" }), "re");
+    await user.selectOptions(screen.getByLabelText("Status"), "in_progress");
+    expect(items()).toHaveLength(2);
+    await user.click(screen.getByRole("checkbox", { name: "Starred only" }));
+    expect(items()).toHaveLength(1);
+    expect(items()[0]).toHaveTextContent("Review quarterly roadmap");
+    expect(screen.getByRole("searchbox", { name: "Search" })).toHaveValue("re");
+    expect(screen.getByLabelText("Status")).toHaveValue("in_progress");
+  });
+
+  it("counts only the tasks the search leaves visible (SDLC-13 AC4)", async () => {
+    const user = userEvent.setup();
+    render(<App store={memory()} />);
+    await user.click(screen.getByRole("button", { name: "Star Draft onboarding checklist" }));
+    await user.type(screen.getByRole("searchbox", { name: "Search" }), "review");
+    const count = screen.getByText(`Showing 1 of ${TASKS.length} tasks`, { exact: false });
+    expect(count).toHaveTextContent(`Showing 1 of ${TASKS.length} tasks · 1 starred`);
+    expect(count).toHaveAttribute("aria-live", "polite");
+  });
+
+  it("shows the existing empty-state message when the search matches nothing (SDLC-13 AC5)", async () => {
+    const user = userEvent.setup();
+    render(<App store={memory()} />);
+    await user.type(screen.getByRole("searchbox", { name: "Search" }), "releasenotes");
+    expect(screen.getByRole("status")).toHaveTextContent("No tasks match the current filter.");
+    expect(screen.getByText(`Showing 0 of ${TASKS.length} tasks`, { exact: false })).toBeInTheDocument();
+  });
+
+  it("shows the tasks again when the search is cleared or left with only spaces (SDLC-13 AC6)", async () => {
+    const user = userEvent.setup();
+    render(<App store={memory()} />);
+    const search = screen.getByRole("searchbox", { name: "Search" });
+    const items = () => within(screen.getByRole("list", { name: "Tasks" })).getAllByRole("listitem");
+    await user.selectOptions(screen.getByLabelText("Status"), "done");
+    await user.type(search, "fix");
+    expect(items()).toHaveLength(1);
+    await user.clear(search);
+    expect(items()).toHaveLength(3);
+    expect(screen.getByText(`Showing 3 of ${TASKS.length} tasks`, { exact: false })).toBeInTheDocument();
+    await user.type(search, "   ");
+    expect(items()).toHaveLength(3);
+  });
 });
