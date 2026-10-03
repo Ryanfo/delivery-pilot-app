@@ -1,0 +1,97 @@
+{
+  "attempt": 1,
+  "brief_digest": "209ca4ebaa7b71bcbcb0a3aadc003c0f657b490ee6265c7b403da9e3a77d11d2",
+  "candidate_number": 3,
+  "candidate_sha": "03eaed98fb20ed054cf6d10a563b7d252dee9659",
+  "changed_paths": [
+    "e2e/app.spec.ts",
+    "src/App.test.tsx"
+  ],
+  "checks": [],
+  "config_digest": "c7657d914664ee8b2be5bad834ddf5c5e918cfaef7bb0c9a74fef3c77e66a0fc",
+  "decision": "success",
+  "evidence": [
+    {
+      "criterion_id": "AC1",
+      "description": "Seen passing: \"shows an empty Search input with a 'Search' placeholder and no visible label, alongside the other filters (SDLC-13 AC1)\" and \"reaches the Search input with Tab and types into it (SDLC-13 AC1)\". The e2e test \"searches tasks by title combined with other filters\" has been written but not run here.",
+      "path": "src/App.test.tsx",
+      "status": "met"
+    },
+    {
+      "criterion_id": "AC2",
+      "description": "Seen passing: the matchesSearch unit tests (empty, whitespace-only, case, surrounding spaces, internal spaces, regex characters), the filterTasks unit tests \"filters by title search ignoring case\" and \"returns every title containing the search\", and the component test \"filters the list by title as the user types, ignoring case and surrounding spaces (SDLC-13 AC2)\".",
+      "path": "src/domain/filter.test.ts",
+      "status": "met"
+    },
+    {
+      "criterion_id": "AC3",
+      "description": "Seen passing: the unit test \"combines search with status and starredOnly\" and the component test \"combines Search with Status and Starred only, keeping each filter's value (SDLC-13 AC3)\".",
+      "path": "src/App.test.tsx",
+      "status": "met"
+    },
+    {
+      "criterion_id": "AC4",
+      "description": "Seen passing: \"counts only the tasks the search leaves visible (SDLC-13 AC4)\". It asserts \"Showing 1 of 12 tasks \u00b7 1 starred\" inside the aria-live=\"polite\" paragraph.",
+      "path": "src/App.test.tsx",
+      "status": "met"
+    },
+    {
+      "criterion_id": "AC5",
+      "description": "Seen passing: \"shows the existing empty-state message when the search matches nothing (SDLC-13 AC5)\". It asserts the role=status message and \"Showing 0 of 12 tasks\".",
+      "path": "src/App.test.tsx",
+      "status": "met"
+    },
+    {
+      "criterion_id": "AC6",
+      "description": "Seen passing: \"shows the tasks again when the search is cleared or left with only spaces (SDLC-13 AC6)\". It asserts 3 done tasks after clearing, the count line, an empty value with the placeholder still set, and that whitespace-only input still shows 3.",
+      "path": "src/App.test.tsx",
+      "status": "met"
+    }
+  ],
+  "input_revision": "78abe1fdb97ea1b92dd678613a2f305f11cfbef8c364afa14542d9aef6366a30",
+  "plugin_digest": "59e0585563bbb3bc2e462ae4defc0f88bf62efedcae9df26abe34e4179174f6e",
+  "pr": "https://github.com/Ryanfo/delivery-pilot-app/pull/8",
+  "reason": "The feature branch already held the SDLC-13 implementation from commits bcc5ae8 and 9d2dd54, and it matches plan v002: TaskQuery.search, a pure matchesSearch, filterTasks ANDing it in, and a Search input with placeholder=\"Search\", aria-label=\"Search\" and no <label> as the last control in the row. Note 104845 (placeholder instead of label) is already reflected there, so no source change was needed. This run brought the tests in line with plan v002. The AC1 component test now also asserts aria-label=\"Search\" and that no label[for=\"search-filter\"] or <label>Search</label> is rendered. The AC6 component test asserts that the value is empty and the placeholder is still set after clearing. The e2e search test queries by role searchbox, asserts there is no Search label element and checks the field is empty after clearing. There were no feedback items.",
+  "run_id": "SDLC-13-development-20261003T093108Z-55a95a",
+  "schema_version": 1,
+  "selected_comment_ids": [
+    "104853"
+  ],
+  "session_label": "SDLC-13-development-20261003T093108Z-55a95a",
+  "stage": "development",
+  "started_at": "2026-10-03T09:31:09.968600+00:00",
+  "ticket_key": "SDLC-13",
+  "worker_checks": [
+    {
+      "command": "npm run lint",
+      "name": "lint",
+      "result": "passed",
+      "summary": "eslint reported no warnings or errors (after npm ci; node_modules was missing)."
+    },
+    {
+      "command": "npm run typecheck",
+      "name": "typecheck",
+      "result": "passed",
+      "summary": "tsc --noEmit was clean."
+    },
+    {
+      "command": "npm run test:unit",
+      "name": "unit",
+      "result": "passed",
+      "summary": "3 files, 38 tests passed."
+    },
+    {
+      "command": "npm run build",
+      "name": "build",
+      "result": "passed",
+      "summary": "vite build succeeded."
+    },
+    {
+      "command": "npm run test:e2e",
+      "name": "e2e",
+      "result": "not_run",
+      "summary": "Browsers cannot launch in the macOS sandbox, so the coordinator runs this."
+    }
+  ],
+  "worker_id": "ryan-mac"
+}
