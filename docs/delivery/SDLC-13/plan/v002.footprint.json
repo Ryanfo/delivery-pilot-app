@@ -1,0 +1,35 @@
+{
+  "actual_commit": null,
+  "actual_paths": [],
+  "components": [
+    "domain/filter",
+    "App (controls row)"
+  ],
+  "dependencies": [],
+  "domain_models": [
+    "TaskQuery"
+  ],
+  "interfaces": [
+    "TaskQuery (src/domain/filter.ts): adds required readonly search: string",
+    "matchesSearch(title: string, search: string): boolean (new export, src/domain/filter.ts)",
+    "filterTasks (behaviour extended, signature unchanged)"
+  ],
+  "migrations": [],
+  "owner_account_id": "5b51e9f46a66cf638d2cb417",
+  "paths": [
+    "src/domain/filter.ts",
+    "src/domain/filter.test.ts",
+    "src/App.tsx",
+    "src/App.test.tsx",
+    "e2e/app.spec.ts"
+  ],
+  "plan_revision": 2,
+  "published_at": "2026-10-03T09:29:33.069346Z",
+  "schema_version": 1,
+  "schemas": [],
+  "sequencing_notes": "Builds on SDLC-7 and SDLC-10, already merged into main at be71a8c. Any concurrent ticket that constructs a TaskQuery literal or edits the controls row in src/App.tsx should land before or rebase after this change.",
+  "source_commit": "be71a8c5dc029f41e237cd248eb3367a040f74e4",
+  "stage": "planning",
+  "ticket_dependencies": [],
+  "ticket_key": "SDLC-13"
+}
