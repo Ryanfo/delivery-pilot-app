@@ -1,0 +1,33 @@
+{
+  "actual_commit": null,
+  "actual_paths": [],
+  "components": [
+    "domain/filter",
+    "App (controls row, visible-list derivation)"
+  ],
+  "dependencies": [],
+  "domain_models": [],
+  "interfaces": [
+    "TaskQuery (adds required readonly search: string)",
+    "filterTasks (behaviour extended; signature unchanged)",
+    "matchesSearch(title: string, search: string): boolean (new export)"
+  ],
+  "migrations": [],
+  "owner_account_id": "5b51e9f46a66cf638d2cb417",
+  "paths": [
+    "src/domain/filter.ts",
+    "src/domain/filter.test.ts",
+    "src/App.tsx",
+    "src/App.test.tsx",
+    "e2e/app.spec.ts"
+  ],
+  "plan_revision": 1,
+  "published_at": "2026-10-03T08:47:06.579080Z",
+  "schema_version": 1,
+  "schemas": [],
+  "sequencing_notes": "Builds on SDLC-7 and SDLC-10, which are already merged into main at be71a8c. Any concurrent ticket that constructs TaskQuery literals or edits the controls row in src/App.tsx will conflict or fail the typecheck until it adds `search`.",
+  "source_commit": "be71a8c5dc029f41e237cd248eb3367a040f74e4",
+  "stage": "planning",
+  "ticket_dependencies": [],
+  "ticket_key": "SDLC-13"
+}

@@ -1,0 +1,22 @@
+{
+  "artefact": "docs/delivery/SDLC-13/plan/v001.md",
+  "attempt": 1,
+  "brief_digest": "209ca4ebaa7b71bcbcb0a3aadc003c0f657b490ee6265c7b403da9e3a77d11d2",
+  "checks": [],
+  "config_digest": "c7657d914664ee8b2be5bad834ddf5c5e918cfaef7bb0c9a74fef3c77e66a0fc",
+  "decision": "success",
+  "input_revision": "021d4a60e9a8f75f5a046a9931c14a020b9e7d98cb45f08d8a6a6f442310a2da",
+  "overlap": [],
+  "plugin_digest": "59e0585563bbb3bc2e462ae4defc0f88bf62efedcae9df26abe34e4179174f6e",
+  "reason": "Plan v1 extends TaskQuery in src/domain/filter.ts with a required `search` field and a pure exported `matchesSearch` helper. The helper trims the search text and does a case-insensitive substring match on the title, ANDed with the existing filters in filterTasks. App holds the raw search string in state and renders a labelled `type=\"search\"` input as the last control in the existing controls row. The count line and empty state already derive from the same visible list, so they reflect the search with no further change. Each of AC1 to AC6 maps to named unit, component and e2e tests. No new dependencies, storage formats or ADR are needed.",
+  "run_id": "SDLC-13-planning-20261003T084520Z-0b0b15",
+  "schema_version": 1,
+  "selected_comment_ids": [
+    "104834"
+  ],
+  "session_label": "SDLC-13-planning-20261003T084520Z-0b0b15",
+  "stage": "planning",
+  "started_at": "2026-10-03T08:45:20.939327+00:00",
+  "ticket_key": "SDLC-13",
+  "worker_id": "ryan-mac"
+}
