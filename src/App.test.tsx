@@ -112,11 +112,14 @@ describe("App", () => {
     expect(checkbox).not.toBeChecked();
   });
 
-  it("shows an empty 'Search' input in the controls with the other filters (SDLC-13 AC1)", () => {
-    render(<App store={memory()} />);
+  it("shows an empty Search input with a 'Search' placeholder and no visible label, alongside the other filters (SDLC-13 AC1)", () => {
+    const { container } = render(<App store={memory()} />);
     const search = screen.getByRole("searchbox", { name: "Search" });
     expect(search).toHaveValue("");
     expect(search).toHaveAttribute("placeholder", "Search");
+    expect(search).toHaveAttribute("aria-label", "Search");
+    expect(container.querySelector('label[for="search-filter"]')).toBeNull();
+    expect(screen.queryByText("Search", { selector: "label" })).toBeNull();
     expect(search.parentElement).toBe(screen.getByLabelText("Status").parentElement);
     expect(search.parentElement).toBe(screen.getByRole("checkbox", { name: "Starred only" }).parentElement);
     expect(within(screen.getByRole("list", { name: "Tasks" })).getAllByRole("listitem")).toHaveLength(
@@ -200,6 +203,8 @@ describe("App", () => {
     await user.clear(search);
     expect(items()).toHaveLength(3);
     expect(screen.getByText(`Showing 3 of ${TASKS.length} tasks`, { exact: false })).toBeInTheDocument();
+    expect(search).toHaveValue("");
+    expect(search).toHaveAttribute("placeholder", "Search");
     await user.type(search, "   ");
     expect(items()).toHaveLength(3);
   });

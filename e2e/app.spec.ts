@@ -29,11 +29,12 @@ test("filters tasks and persists a starred task across reloads", async ({ page }
 
 test("searches tasks by title combined with other filters", async ({ page }) => {
   await page.goto("/");
-  const search = page.getByLabel("Search");
+  const search = page.getByRole("searchbox", { name: "Search" });
   const items = page.getByRole("list", { name: "Tasks" }).getByRole("listitem");
   await expect(search).toBeVisible();
   await expect(search).toHaveValue("");
   await expect(search).toHaveAttribute("placeholder", "Search");
+  await expect(page.locator('label[for="search-filter"]')).toHaveCount(0);
 
   await search.fill("REVIEW");
   await expect(items).toHaveCount(1);
@@ -49,6 +50,7 @@ test("searches tasks by title combined with other filters", async ({ page }) => 
 
   await search.fill("");
   await expect(items).toHaveCount(3);
+  await expect(search).toHaveValue("");
 
   await page.getByLabel("Status").selectOption("all");
   await expect(items).toHaveCount(12);
