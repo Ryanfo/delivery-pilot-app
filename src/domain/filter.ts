@@ -20,7 +20,6 @@ export function matchesSearch(title: string, search: string): boolean {
 
 /** Pure filtering: never mutates the input. */
 export function filterTasks(tasks: readonly Task[], query: TaskQuery): Task[] {
-  const needle = (query.search ?? "").trim().toLowerCase();
   return tasks.filter(
     (task) =>
       (query.status === "all" || task.status === query.status) &&

@@ -26,7 +26,6 @@ export function App({ tasks = TASKS, store = browserStore() }: Props) {
   const [starredOnly, setStarredOnly] = useState(false);
   const [search, setSearch] = useState("");
   const [starred, setStarred] = useState<Set<string>>(() => loadStarred(store));
-  const [search, setSearch] = useState("");
 
   const visible = useMemo(
     () => sortTasks(filterTasks(tasks, { status, starredOnly, starredIds: starred, search })),
