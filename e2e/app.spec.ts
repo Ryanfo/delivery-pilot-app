@@ -27,21 +27,31 @@ test("filters tasks and persists a starred task across reloads", async ({ page }
   await expect(page.getByRole("list", { name: "Tasks" }).getByRole("listitem")).toHaveCount(12);
 });
 
-test("searches tasks by title alongside the other filters", async ({ page }) => {
+test("searches tasks by title combined with other filters", async ({ page }) => {
   await page.goto("/");
+  const search = page.getByRole("searchbox", { name: "Search" });
   const items = page.getByRole("list", { name: "Tasks" }).getByRole("listitem");
-  const search = page.getByRole("textbox", { name: "Search" });
+  await expect(search).toBeVisible();
+  await expect(search).toHaveValue("");
+  await expect(search).toHaveAttribute("placeholder", "Search");
+  await expect(page.locator('label[for="search-filter"]')).toHaveCount(0);
 
-  await search.fill("  ROTA ");
+  await search.fill("REVIEW");
   await expect(items).toHaveCount(1);
-  await expect(items.first()).toContainText("Update support rota");
   await expect(page.getByText("Showing 1 of 12 tasks")).toBeVisible();
 
-  await page.getByLabel("Status").selectOption("todo");
+  await search.fill("zzz");
   await expect(page.getByRole("status")).toHaveText("No tasks match the current filter.");
   await expect(page.getByText("Showing 0 of 12 tasks")).toBeVisible();
 
+  await page.getByLabel("Status").selectOption("in_progress");
+  await search.fill("re");
+  await expect(items).toHaveCount(2);
+
+  await search.fill("");
+  await expect(items).toHaveCount(3);
+  await expect(search).toHaveValue("");
+
   await page.getByLabel("Status").selectOption("all");
-  await search.clear();
   await expect(items).toHaveCount(12);
 });

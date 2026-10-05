@@ -26,6 +26,7 @@ export function App({ tasks = TASKS, store = browserStore() }: Props) {
   const [starredOnly, setStarredOnly] = useState(false);
   const [search, setSearch] = useState("");
   const [starred, setStarred] = useState<Set<string>>(() => loadStarred(store));
+  const [search, setSearch] = useState("");
 
   const visible = useMemo(
     () => sortTasks(filterTasks(tasks, { status, starredOnly, starredIds: starred, search })),
@@ -68,8 +69,14 @@ export function App({ tasks = TASKS, store = browserStore() }: Props) {
           checked={starredOnly}
           onChange={(e) => setStarredOnly(e.target.checked)}
         />
-        <label htmlFor="search-filter">Search</label>
-        <input id="search-filter" type="text" value={search} onChange={(e) => setSearch(e.target.value)} />
+        <input
+          id="search-filter"
+          type="search"
+          aria-label="Search"
+          placeholder="Search"
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+        />
       </div>
       <p aria-live="polite">
         Showing {visible.length} of {tasks.length} tasks · {starred.size} starred

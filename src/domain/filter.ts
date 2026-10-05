@@ -6,11 +6,17 @@ export interface TaskQuery {
   readonly status: StatusFilter;
   readonly starredOnly: boolean;
   readonly starredIds: ReadonlySet<string>;
-  /** Title substring, matched case-insensitively after trimming. Empty or blank matches every task. */
-  readonly search?: string;
+  readonly search: string;
 }
 
 const PRIORITY_ORDER = { high: 0, medium: 1, low: 2 } as const;
+
+/** Case-insensitive title substring match; surrounding whitespace in the search is ignored. */
+export function matchesSearch(title: string, search: string): boolean {
+  const needle = search.trim();
+  if (needle === "") return true;
+  return title.toLowerCase().includes(needle.toLowerCase());
+}
 
 /** Pure filtering: never mutates the input. */
 export function filterTasks(tasks: readonly Task[], query: TaskQuery): Task[] {
@@ -19,7 +25,7 @@ export function filterTasks(tasks: readonly Task[], query: TaskQuery): Task[] {
     (task) =>
       (query.status === "all" || task.status === query.status) &&
       (!query.starredOnly || query.starredIds.has(task.id)) &&
-      (needle === "" || task.title.toLowerCase().includes(needle)),
+      matchesSearch(task.title, query.search),
   );
 }
 
