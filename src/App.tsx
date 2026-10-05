@@ -24,8 +24,8 @@ function isStatusFilter(value: string): value is StatusFilter {
 export function App({ tasks = TASKS, store = browserStore() }: Props) {
   const [status, setStatus] = useState<StatusFilter>("all");
   const [starredOnly, setStarredOnly] = useState(false);
-  const [starred, setStarred] = useState<Set<string>>(() => loadStarred(store));
   const [search, setSearch] = useState("");
+  const [starred, setStarred] = useState<Set<string>>(() => loadStarred(store));
 
   const visible = useMemo(
     () => sortTasks(filterTasks(tasks, { status, starredOnly, starredIds: starred, search })),

@@ -103,6 +103,44 @@ describe("matchesSearch", () => {
     expect(TASKS.some((t) => matchesSearch(t.title, ".*"))).toBe(false);
     expect(matchesSearch("Fix (urgent) bug", "(urgent)")).toBe(true);
   });
+
+  const ALL = { status: "all", starredOnly: false, starredIds: new Set<string>() } as const;
+  const ids = (tasks: readonly { id: string }[]) => tasks.map((t) => t.id);
+
+  it("matches the title case-insensitively and ignores surrounding spaces", () => {
+    expect(ids(filterTasks(TASKS, { ...ALL, search: "  ROTA " }))).toEqual(["t-004"]);
+  });
+
+  it("does not filter when the search is empty or only spaces", () => {
+    expect(filterTasks(TASKS, { ...ALL, search: "" })).toHaveLength(TASKS.length);
+    expect(filterTasks(TASKS, { ...ALL, search: "   " })).toHaveLength(TASKS.length);
+  });
+
+  it("matches the title only, not the description", () => {
+    expect(ids(filterTasks(TASKS, { ...ALL, search: "draft" }))).toEqual(["t-001"]);
+  });
+
+  it("keeps inner spaces in the search text", () => {
+    expect(ids(filterTasks(TASKS, { ...ALL, search: "support rota" }))).toEqual(["t-004"]);
+    expect(filterTasks(TASKS, { ...ALL, search: "supportrota" })).toEqual([]);
+    expect(filterTasks(TASKS, { ...ALL, search: "support  rota" })).toEqual([]);
+  });
+
+  it("combines search with status and starredOnly", () => {
+    const before = [...TASKS];
+    const result = filterTasks(TASKS, {
+      status: "in_progress",
+      starredOnly: true,
+      starredIds: new Set(["t-002", "t-006", "t-010"]),
+      search: "re",
+    });
+    expect(ids(result)).toEqual(["t-002", "t-006"]);
+    expect(TASKS).toEqual(before);
+  });
+
+  it("returns an empty list for an empty input with a search", () => {
+    expect(filterTasks([], { ...ALL, search: "rota" })).toEqual([]);
+  });
 });
 
 describe("sortTasks", () => {
