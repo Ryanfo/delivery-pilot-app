@@ -1,0 +1,19 @@
+{
+  "checks": [],
+  "provenance": {
+    "candidate": "03eaed98fb20ed054cf6d10a563b7d252dee9659",
+    "merge_commit": "1e13ceb3b948a9bfad4cf55ac3a4f500e13d03a5",
+    "merged": true,
+    "merged_by": "Ryanfo",
+    "pr": 8,
+    "pr_head": "03eaed98fb20ed054cf6d10a563b7d252dee9659",
+    "released": "71c5eaab5a2eb945411b9d872012340950193b46"
+  },
+  "record": {
+    "comment_id": "105042",
+    "commit": "71c5eaab5a2eb945411b9d872012340950193b46",
+    "environment": "local-pilot",
+    "merged_pr": "7",
+    "recorded_by": "5b51e9f46a66cf638d2cb417"
+  }
+}
