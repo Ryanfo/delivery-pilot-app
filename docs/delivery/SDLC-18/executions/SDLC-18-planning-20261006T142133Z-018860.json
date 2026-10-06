@@ -1,0 +1,22 @@
+{
+  "artefact": "docs/delivery/SDLC-18/plan/v001.md",
+  "attempt": 1,
+  "brief_digest": "fc2d69d954754d05905837461c5d2cd3e7ccb134843d3c086ec25da50a6d8230",
+  "checks": [],
+  "config_digest": "4da0832bb235657e182d672ecc5e172f8c39b9ad31d8ca7a8e4c4fccd545d4ee",
+  "decision": "success",
+  "input_revision": "7fc6bc558324e3449fba35c35bf994f353c1380f0377baa4e0c8c9d28a651823",
+  "overlap": [],
+  "plugin_digest": "ba7f1740e614a71d7d5ea3f7c4757b3ba07eff850e0c997e4e64b29e1b0ec641",
+  "reason": "Each task gets a native, labelled status <select> after its star button (accessible name \"Status for <title>\"). The read-only status text stays. User-set statuses are held in App as an ID-to-status map, applied to the fixtures by a pure withStatuses function, and saved under a new key, task-list:status:v1, behind the existing KeyValueStore boundary. Corrupt or unavailable storage falls back to fixture statuses, and the stored stars are untouched. Filtering, sorting and the fixture data are unchanged. Existing Playwright getByLabel(\"Status\") locators need { exact: true } because the new labels also contain \"Status\".",
+  "run_id": "SDLC-18-planning-20261006T142133Z-018860",
+  "schema_version": 1,
+  "selected_comment_ids": [
+    "105178"
+  ],
+  "session_label": "SDLC-18-planning-20261006T142133Z-018860",
+  "stage": "planning",
+  "started_at": "2026-10-06T14:21:33.896868+00:00",
+  "ticket_key": "SDLC-18",
+  "worker_id": "ryan-mac"
+}

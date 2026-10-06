@@ -1,0 +1,44 @@
+{
+  "actual_commit": null,
+  "actual_paths": [],
+  "components": [
+    "domain",
+    "storage",
+    "ui",
+    "e2e"
+  ],
+  "dependencies": [],
+  "domain_models": [
+    "Task.status (read-only fixture value, overridden per ID in App state)"
+  ],
+  "interfaces": [
+    "src/domain/task.ts: TASK_STATUSES, isTaskStatus, withStatuses (new exports)",
+    "src/storage/statuses.ts: STATUS_KEY, loadStatuses, saveStatuses (new module)",
+    "TaskList props: onChangeStatus (new required prop)"
+  ],
+  "migrations": [],
+  "owner_account_id": "5b51e9f46a66cf638d2cb417",
+  "paths": [
+    "src/domain/task.ts",
+    "src/domain/task.test.ts",
+    "src/storage/statuses.ts",
+    "src/storage/statuses.test.ts",
+    "src/App.tsx",
+    "src/App.test.tsx",
+    "src/components/TaskList.tsx",
+    "src/styles.css",
+    "e2e/app.spec.ts",
+    "e2e/styling.spec.ts"
+  ],
+  "plan_revision": 1,
+  "published_at": "2026-10-06T14:24:03.153931Z",
+  "schema_version": 1,
+  "schemas": [
+    "localStorage key task-list:status:v1: JSON object of task ID to TaskStatus"
+  ],
+  "sequencing_notes": "No in-flight related work. Any concurrent ticket that adds focusable controls to tasks or relies on Playwright getByLabel(\"Status\") would interact with this change's e2e locator and tab-order updates.",
+  "source_commit": "e451adbfd571a4b60f35493eae8d93fc9a973db9",
+  "stage": "planning",
+  "ticket_dependencies": [],
+  "ticket_key": "SDLC-18"
+}
