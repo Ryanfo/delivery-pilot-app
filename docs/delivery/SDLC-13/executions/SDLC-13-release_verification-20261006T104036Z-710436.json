@@ -1,0 +1,25 @@
+{
+  "attempt": 1,
+  "brief_digest": "209ca4ebaa7b71bcbcb0a3aadc003c0f657b490ee6265c7b403da9e3a77d11d2",
+  "checks": [],
+  "config_digest": "4da0832bb235657e182d672ecc5e172f8c39b9ad31d8ca7a8e4c4fccd545d4ee",
+  "decision": "blocked",
+  "input_revision": "80bac946ff785c4230c53956be7f32d6d4d82788f9527663e8c8812b9ea614e3",
+  "plugin_digest": "2f251c90028ece7748d66ec8839d6455ac3be9f16482d80d7da6314ae593838e",
+  "reason": "release provenance failed: recorded commit 71c5eaab5a2e does not contain merge 1e13ceb3b948 (unrelated)",
+  "release": {
+    "comment_id": "105042",
+    "commit": "71c5eaab5a2eb945411b9d872012340950193b46",
+    "environment": "local-pilot",
+    "merged_pr": "7",
+    "recorded_by": "5b51e9f46a66cf638d2cb417"
+  },
+  "run_id": "SDLC-13-release_verification-20261006T104036Z-710436",
+  "schema_version": 1,
+  "selected_comment_ids": [],
+  "session_label": "SDLC-13-release_verification-20261006T104036Z-710436",
+  "stage": "release_verification",
+  "started_at": "2026-10-06T10:40:36.106210+00:00",
+  "ticket_key": "SDLC-13",
+  "worker_id": "ryan-mac"
+}
