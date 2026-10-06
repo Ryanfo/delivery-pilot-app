@@ -10,9 +10,10 @@ function memory(): KeyValueStore {
 }
 
 describe("App", () => {
-  it("shows the welcome block with the exact text HELLO WORLD", () => {
+  it("does not show the HELLO WORLD welcome block", () => {
     render(<App store={memory()} />);
-    expect(screen.getByRole("region", { name: "Welcome" })).toHaveTextContent("HELLO WORLD");
+    expect(screen.queryByRole("region", { name: "Welcome" })).not.toBeInTheDocument();
+    expect(screen.queryByText("HELLO WORLD")).not.toBeInTheDocument();
   });
 
   it("lists every task with a labelled status filter", () => {

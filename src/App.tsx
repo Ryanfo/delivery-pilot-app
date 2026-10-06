@@ -45,7 +45,6 @@ export function App({ tasks = TASKS, store = browserStore() }: Props) {
   return (
     <main>
       <h1 className="masthead">Task list</h1>
-      <section aria-label="Welcome" className="standfirst">HELLO WORLD</section>
       <div className="controls">
         <label htmlFor="status-filter">Status</label>
         <select

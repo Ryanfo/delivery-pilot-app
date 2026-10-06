@@ -172,7 +172,6 @@ test.describe("editorial styling (SDLC-17)", () => {
 
     const sections = [
       page.getByRole("heading", { level: 1 }),
-      page.getByRole("region", { name: "Welcome" }),
       page.locator(".controls"),
       page.getByText(/^Showing \d+ of \d+ tasks/),
       page.getByRole("list", { name: "Tasks" }),
@@ -274,7 +273,6 @@ test.describe("editorial styling (SDLC-17)", () => {
 
     const large: Locator[] = [page.getByRole("heading", { level: 1 }), ...(await list.getByRole("heading").all())];
     const normal: Locator[] = [
-      page.getByRole("region", { name: "Welcome" }),
       c.statusLabel,
       c.starredLabel,
       c.status,

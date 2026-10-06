@@ -39,10 +39,10 @@ main {
   padding: 2.5rem 1.5rem 4rem;
 }
 
-/* Masthead and standfirst */
+/* Masthead */
 
 .masthead {
-  margin: 0 0 0.75rem;
+  margin: 0 0 2rem;
   padding-bottom: 0.75rem;
   border-bottom: 3px double var(--ink);
   font-family: var(--font-display);
@@ -50,15 +50,6 @@ main {
   font-weight: 700;
   line-height: 1.05;
   letter-spacing: -0.01em;
-  text-align: center;
-}
-
-.standfirst {
-  margin: 0 0 2rem;
-  color: var(--muted);
-  font-family: var(--font-kicker);
-  font-size: 0.8125rem;
-  letter-spacing: 0.2em;
   text-align: center;
 }
 
