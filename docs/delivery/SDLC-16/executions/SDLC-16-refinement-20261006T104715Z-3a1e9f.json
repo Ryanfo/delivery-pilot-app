@@ -1,0 +1,23 @@
+{
+  "artefact": "docs/delivery/SDLC-16/specification/v001.md",
+  "attempt": 1,
+  "brief_digest": "329f55507bac4d8d4de9256f05a32c8c4b96b0950196b66b322ae9926607c1dc",
+  "checks": [],
+  "config_digest": "4da0832bb235657e182d672ecc5e172f8c39b9ad31d8ca7a8e4c4fccd545d4ee",
+  "decision": "clarification",
+  "input_revision": "b650df615d67837e202bc416dea2df5a6b60944723f7bb5e09f9652127130086",
+  "plugin_digest": "2f251c90028ece7748d66ec8839d6455ac3be9f16482d80d7da6314ae593838e",
+  "questions": [
+    "Q1",
+    "Q2"
+  ],
+  "reason": "Title search is already on main: SDLC-13 \"Search by task name\" (PR #8) delivered it, with the same six acceptance criteria as this brief. AC2\u2013AC6 are already met. The only gap is AC1: the search input has no visible \"Search\" label, which docs/coding-standards.md requires but SDLC-13 deliberately left out. A full draft specification is written. Please confirm whether SDLC-16 is a duplicate (Q1) and whether it should add a visible label (Q2).",
+  "run_id": "SDLC-16-refinement-20261006T104715Z-3a1e9f",
+  "schema_version": 1,
+  "selected_comment_ids": [],
+  "session_label": "SDLC-16-refinement-20261006T104715Z-3a1e9f",
+  "stage": "refinement",
+  "started_at": "2026-10-06T10:47:15.367361+00:00",
+  "ticket_key": "SDLC-16",
+  "worker_id": "ryan-mac"
+}
