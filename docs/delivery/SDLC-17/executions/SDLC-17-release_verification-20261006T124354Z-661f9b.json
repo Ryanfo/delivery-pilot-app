@@ -1,0 +1,41 @@
+{
+  "attempt": 1,
+  "brief_digest": "9f7c228ed1ef4db2a724ed71ddc0b36745c2cad60ed5d3a29b1089fd286f8566",
+  "checks": [
+    {
+      "base_sha": null,
+      "conclusion": "passed",
+      "duration_seconds": 2.82,
+      "exit_code": 0,
+      "log_path": "/Users/roconnor/.local/state/delivery/runs/SDLC-17/SDLC-17-release_verification-20261006T124354Z-661f9b/logs/release-setup.log",
+      "name": "setup",
+      "producer": "delivery-coordinator",
+      "sha": "e451adbfd571a4b60f35493eae8d93fc9a973db9",
+      "source": "coordinator",
+      "target": "release",
+      "tree_sha": null,
+      "url": null
+    }
+  ],
+  "config_digest": "4da0832bb235657e182d672ecc5e172f8c39b9ad31d8ca7a8e4c4fccd545d4ee",
+  "decision": "success",
+  "input_revision": "36efaa7a0d751e27dbfadf464dd209e667192710a8a5034c38bd24f6aac50299",
+  "plugin_digest": "34c6df3cc84e8130b254bd2c7ff3900b0e7abc4e5f53d752fd6a773f95ef4a31",
+  "reason": "Released commit e451adb (merge of PR #9) has a tree identical to the accepted candidate e438a6b. On it, lint, typecheck, unit tests (44/44) and the build all pass, and the bundled CSS (3.09 kB) has no external references. The built stylesheet matches every visual expectation in the release proposal, and all palette contrast ratios meet WCAG AA (lowest 6.52:1). No smoke step failed. Playwright e2e and the manual browser steps 4-12 are unverified on the released commit: the coordinator supplied no e2e result, and this session could not open a browser or fetch the preview over HTTP.",
+  "release": {
+    "commit": "e451adbfd571a4b60f35493eae8d93fc9a973db9",
+    "environment": "local-pilot",
+    "merged_at": "2026-10-06T12:40:49+00:00",
+    "merged_by": "Ryanfo",
+    "merged_pr": "9",
+    "source": "github"
+  },
+  "run_id": "SDLC-17-release_verification-20261006T124354Z-661f9b",
+  "schema_version": 1,
+  "selected_comment_ids": [],
+  "session_label": "SDLC-17-release_verification-20261006T124354Z-661f9b",
+  "stage": "release_verification",
+  "started_at": "2026-10-06T12:43:54.303604+00:00",
+  "ticket_key": "SDLC-17",
+  "worker_id": "ryan-mac"
+}

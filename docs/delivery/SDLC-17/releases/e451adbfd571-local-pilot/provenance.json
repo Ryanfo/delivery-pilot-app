@@ -1,0 +1,38 @@
+{
+  "checks": [
+    {
+      "base_sha": null,
+      "conclusion": "passed",
+      "duration_seconds": 2.82,
+      "exit_code": 0,
+      "log_path": "/Users/roconnor/.local/state/delivery/runs/SDLC-17/SDLC-17-release_verification-20261006T124354Z-661f9b/logs/release-setup.log",
+      "name": "setup",
+      "producer": "delivery-coordinator",
+      "sha": "e451adbfd571a4b60f35493eae8d93fc9a973db9",
+      "source": "coordinator",
+      "target": "release",
+      "tree_sha": null,
+      "url": null
+    }
+  ],
+  "provenance": {
+    "candidate": "e438a6b15e0ef8a7a102bcd25b0a8c79a493163b",
+    "merge_commit": "e451adbfd571a4b60f35493eae8d93fc9a973db9",
+    "merged": true,
+    "merged_by": "Ryanfo",
+    "merged_tree_matches_candidate": true,
+    "pr": 9,
+    "pr_head": "e438a6b15e0ef8a7a102bcd25b0a8c79a493163b",
+    "released": "e451adbfd571a4b60f35493eae8d93fc9a973db9",
+    "released_equals_merge": true,
+    "strategy": "merge commit"
+  },
+  "record": {
+    "commit": "e451adbfd571a4b60f35493eae8d93fc9a973db9",
+    "environment": "local-pilot",
+    "merged_at": "2026-10-06T12:40:49+00:00",
+    "merged_by": "Ryanfo",
+    "merged_pr": "9",
+    "source": "github"
+  }
+}
