@@ -1,0 +1,36 @@
+{
+  "actual_commit": null,
+  "actual_paths": [],
+  "components": [
+    "ui",
+    "styles",
+    "e2e"
+  ],
+  "dependencies": [],
+  "domain_models": [],
+  "interfaces": [
+    "CSS class names: masthead, standfirst, results, controls, task-list, task, task-title, task-description, task-meta, star-button, empty-state",
+    "CSS custom properties on :root: --paper, --ink, --muted, --accent, --rule, --font-display, --font-body, --font-kicker",
+    "e2e/support/contrast.ts: parseRgb, contrastRatio (test helper)"
+  ],
+  "migrations": [],
+  "owner_account_id": "5b51e9f46a66cf638d2cb417",
+  "paths": [
+    "src/styles.css",
+    "src/main.tsx",
+    "src/vite-env.d.ts",
+    "src/App.tsx",
+    "src/components/TaskList.tsx",
+    "e2e/styling.spec.ts",
+    "e2e/support/contrast.ts"
+  ],
+  "plan_revision": 1,
+  "published_at": "2026-10-06T11:37:01.179149Z",
+  "schema_version": 1,
+  "schemas": [],
+  "sequencing_notes": "No prerequisites. Global element styles (button, select, input focus rings, body font) will apply to UI added by later tickets. Tickets that add controls to .controls should re-check the one-row layout at 768px. Later UI tickets that touch src/App.tsx or src/components/TaskList.tsx should rebase after this ticket because of the class-name additions.",
+  "source_commit": "48583e88df470ea0dba878b32cf59faa026d1bf7",
+  "stage": "planning",
+  "ticket_dependencies": [],
+  "ticket_key": "SDLC-17"
+}
