@@ -1,0 +1,11 @@
+[
+  {
+    "criterion_id": "AC13",
+    "description": "The follow-up commit removes <section aria-label=\"Welcome\">HELLO WORLD</section> from src/App.tsx. It rewrites the existing unit test (src/App.test.tsx) and e2e assertion (e2e/app.spec.ts) to assert that the region is absent. The approved spec excluded changing the HELLO WORLD copy, A4 said the section stays, and AC13 requires existing tests to pass unmodified. This also reverses behaviour delivered by SDLC-7.",
+    "id": "D1",
+    "path": "src/App.tsx",
+    "request": "Remove the \"hello world\" line too",
+    "requested": true,
+    "spec_change": "Exclusions: drop \"the HELLO WORLD welcome text\" from the copy that must not change. A4: \"The Welcome / HELLO WORLD section (SDLC-7) is removed from the page.\" AC5: remove \"welcome section\" from the column contents. AC13: \"Given the styling change, then all existing visible text, roles, accessible names, aria-* attributes, data-testid values and element order are unchanged, except that the Welcome region is removed. The existing unit, component and end-to-end tests pass without modification, except the SDLC-7 welcome assertions in src/App.test.tsx and e2e/app.spec.ts, which now assert the region is absent.\""
+  }
+]
