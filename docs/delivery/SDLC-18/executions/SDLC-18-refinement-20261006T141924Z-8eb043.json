@@ -1,0 +1,22 @@
+{
+  "artefact": "docs/delivery/SDLC-18/specification/v003.md",
+  "attempt": 1,
+  "brief_digest": "fc2d69d954754d05905837461c5d2cd3e7ccb134843d3c086ec25da50a6d8230",
+  "checks": [],
+  "config_digest": "4da0832bb235657e182d672ecc5e172f8c39b9ad31d8ca7a8e4c4fccd545d4ee",
+  "decision": "success",
+  "input_revision": "e0543350d0947e665252607f03326257c4fc25c1943df1d8c7c63c41d2bbafd5",
+  "plugin_digest": "ba7f1740e614a71d7d5ea3f7c4757b3ba07eff850e0c997e4e64b29e1b0ec641",
+  "questions": [],
+  "reason": "Specification v003 applies both answers: changed task statuses persist across reloads in browser storage (AC6, AC7 now firm), and under an active status filter a changed task leaves the list immediately (AC4 confirmed). Users get a labelled, keyboard-operable status control on each task, and the list, filter and results count update straight away. No open questions remain and no slices are proposed; the control's form and the storage format are left to planning.",
+  "run_id": "SDLC-18-refinement-20261006T141924Z-8eb043",
+  "schema_version": 1,
+  "selected_comment_ids": [
+    "105173"
+  ],
+  "session_label": "SDLC-18-refinement-20261006T141924Z-8eb043",
+  "stage": "refinement",
+  "started_at": "2026-10-06T14:19:24.767452+00:00",
+  "ticket_key": "SDLC-18",
+  "worker_id": "ryan-mac"
+}
