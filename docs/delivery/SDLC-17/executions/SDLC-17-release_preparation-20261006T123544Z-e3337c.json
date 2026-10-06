@@ -1,0 +1,22 @@
+{
+  "artefact": "docs/delivery/SDLC-17/releases/v001.md",
+  "attempt": 1,
+  "brief_digest": "9f7c228ed1ef4db2a724ed71ddc0b36745c2cad60ed5d3a29b1089fd286f8566",
+  "checks": [],
+  "config_digest": "4da0832bb235657e182d672ecc5e172f8c39b9ad31d8ca7a8e4c4fccd545d4ee",
+  "decision": "success",
+  "input_revision": "a6c69e21893613e13145a76a984cafe69f769e1e52a8ba17029a91ddae239553",
+  "plugin_digest": "34c6df3cc84e8130b254bd2c7ff3900b0e7abc4e5f53d752fd6a773f95ef4a31",
+  "reason": "Release proposal v1 for SDLC-17 (editorial styling) covers accepted candidate e438a6b15e0ef8a7a102bcd25b0a8c79a493163b in the local-pilot profile. The release notes describe the new editorial look and the accepted removal of SDLC-7's 'HELLO WORLD' welcome line (D1). The pre-merge checklist includes confirming the PR head is unchanged and that the product owner knows SDLC-7's behaviour is retired. There are 12 smoke checks (the automated checks plus a manual browser walk-through at 1280px and 320px). Rollback is a revert of the merge commit: no migrations, dependencies or storage changes, but the revert also brings back the welcome line.",
+  "run_id": "SDLC-17-release_preparation-20261006T123544Z-e3337c",
+  "schema_version": 1,
+  "selected_comment_ids": [
+    "105122",
+    "105120"
+  ],
+  "session_label": "SDLC-17-release_preparation-20261006T123544Z-e3337c",
+  "stage": "release_preparation",
+  "started_at": "2026-10-06T12:35:44.718354+00:00",
+  "ticket_key": "SDLC-17",
+  "worker_id": "ryan-mac"
+}
