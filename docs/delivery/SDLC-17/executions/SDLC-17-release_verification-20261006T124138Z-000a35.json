@@ -1,0 +1,19 @@
+{
+  "attempt": 1,
+  "brief_digest": "9f7c228ed1ef4db2a724ed71ddc0b36745c2cad60ed5d3a29b1089fd286f8566",
+  "checks": [],
+  "config_digest": "4da0832bb235657e182d672ecc5e172f8c39b9ad31d8ca7a8e4c4fccd545d4ee",
+  "decision": "blocked",
+  "input_revision": "ec205cdab0ac5b68542b23e9547eefba9ac92f84965c238a2ce6c8efa3b3a693",
+  "plugin_digest": "34c6df3cc84e8130b254bd2c7ff3900b0e7abc4e5f53d752fd6a773f95ef4a31",
+  "reason": "release approval invalid: no `APPROVE RELEASE SDLC-17-RELEASE-v1` comment found",
+  "release": {},
+  "run_id": "SDLC-17-release_verification-20261006T124138Z-000a35",
+  "schema_version": 1,
+  "selected_comment_ids": [],
+  "session_label": "SDLC-17-release_verification-20261006T124138Z-000a35",
+  "stage": "release_verification",
+  "started_at": "2026-10-06T12:41:38.503761+00:00",
+  "ticket_key": "SDLC-17",
+  "worker_id": "ryan-mac"
+}
