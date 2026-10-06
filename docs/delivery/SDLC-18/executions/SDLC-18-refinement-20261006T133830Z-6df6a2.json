@@ -1,0 +1,23 @@
+{
+  "artefact": "docs/delivery/SDLC-18/specification/v001.md",
+  "attempt": 1,
+  "brief_digest": "fc2d69d954754d05905837461c5d2cd3e7ccb134843d3c086ec25da50a6d8230",
+  "checks": [],
+  "config_digest": "4da0832bb235657e182d672ecc5e172f8c39b9ad31d8ca7a8e4c4fccd545d4ee",
+  "decision": "clarification",
+  "input_revision": "d7649abd0390b8e8c68bc617c31998f5c00a299baba663b3e3473a8189633bf9",
+  "plugin_digest": "ba7f1740e614a71d7d5ea3f7c4757b3ba07eff850e0c997e4e64b29e1b0ec641",
+  "questions": [
+    "Q1",
+    "Q2"
+  ],
+  "reason": "Drafted specification v001: users can change any task's status (To do / In progress / Done) from an accessible, keyboard-operable control on each task. The list, status filter and results count update immediately. One material question remains (Q1): should status changes persist across reloads like stars do? The draft assumes yes, and AC6\u2013AC7 depend on the answer. Q2 (whether a task disappears straight away when it no longer matches the active filter) is not material and has a proposed default.",
+  "run_id": "SDLC-18-refinement-20261006T133830Z-6df6a2",
+  "schema_version": 1,
+  "selected_comment_ids": [],
+  "session_label": "SDLC-18-refinement-20261006T133830Z-6df6a2",
+  "stage": "refinement",
+  "started_at": "2026-10-06T13:38:30.416185+00:00",
+  "ticket_key": "SDLC-18",
+  "worker_id": "ryan-mac"
+}
