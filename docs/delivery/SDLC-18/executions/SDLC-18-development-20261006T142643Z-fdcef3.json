@@ -1,0 +1,117 @@
+{
+  "attempt": 1,
+  "brief_digest": "fc2d69d954754d05905837461c5d2cd3e7ccb134843d3c086ec25da50a6d8230",
+  "candidate_number": 1,
+  "candidate_sha": "2a04e49986448304a3dbc9bf09c4733ea6140948",
+  "changed_paths": [
+    "e2e/app.spec.ts",
+    "e2e/styling.spec.ts",
+    "src/App.test.tsx",
+    "src/App.tsx",
+    "src/components/TaskList.tsx",
+    "src/domain/task.test.ts",
+    "src/domain/task.ts",
+    "src/storage/statuses.test.ts",
+    "src/storage/statuses.ts",
+    "src/styles.css"
+  ],
+  "checks": [],
+  "config_digest": "4da0832bb235657e182d672ecc5e172f8c39b9ad31d8ca7a8e4c4fccd545d4ee",
+  "decision": "success",
+  "evidence": [
+    {
+      "criterion_id": "AC1",
+      "description": "src/App.test.tsx 'gives every task a status control named for the task, offering the three statuses with the current one selected (SDLC-18 AC1)'; src/domain/task.test.ts 'isTaskStatus accepts only todo, in_progress and done'.",
+      "path": "src/App.test.tsx",
+      "status": "met"
+    },
+    {
+      "criterion_id": "AC2",
+      "description": "src/App.test.tsx 'changes one task's displayed status without affecting other tasks (SDLC-18 AC2)'; src/domain/task.test.ts 'withStatuses applies overrides by ID without mutating the input'.",
+      "path": "src/App.test.tsx",
+      "status": "met"
+    },
+    {
+      "criterion_id": "AC3",
+      "description": "src/App.test.tsx 'keeps the task in place and the results line unchanged under 'All' (SDLC-18 AC3)'; src/domain/task.test.ts 'withStatuses keeps the input order'.",
+      "path": "src/App.test.tsx",
+      "status": "met"
+    },
+    {
+      "criterion_id": "AC4",
+      "description": "src/App.test.tsx 'removes a re-statused task from a filtered list and updates the count (SDLC-18 AC4)': covers the count drop, the empty-state message and selecting the new status in the filter to show the task again.",
+      "path": "src/App.test.tsx",
+      "status": "met"
+    },
+    {
+      "criterion_id": "AC5",
+      "description": "src/App.test.tsx 'changes a task's status with the keyboard (SDLC-18 AC5)' passed (Tab reaches the control; the change is made while it has focus). Real keystrokes and the focus ring are covered in e2e/app.spec.ts and the extended e2e/styling.spec.ts AC9, which have not been run here (see F1).",
+      "path": "src/App.test.tsx",
+      "status": "met"
+    },
+    {
+      "criterion_id": "AC6",
+      "description": "src/App.test.tsx 'restores changed statuses after remount, leaving other tasks at their fixture status (SDLC-18 AC6)'; src/storage/statuses.test.ts 'round-trips statuses with sorted keys'. The e2e reload journey 'changes a task's status and keeps it after a reload' was written but not run here.",
+      "path": "src/App.test.tsx",
+      "status": "met"
+    },
+    {
+      "criterion_id": "AC7",
+      "description": "src/storage/statuses.test.ts 'treats corrupt storage as empty', 'drops entries with an invalid status', 'survives unavailable or throwing storage'; src/domain/task.test.ts 'withStatuses ignores overrides for unknown task IDs'; src/App.test.tsx 'falls back to fixture statuses when stored statuses are corrupt or storage throws (SDLC-18 AC7)'.",
+      "path": "src/storage/statuses.test.ts",
+      "status": "met"
+    },
+    {
+      "criterion_id": "AC8",
+      "description": "src/App.test.tsx 'combines changed statuses with Starred only, search and the status filter (SDLC-18 AC8)'; src/storage/statuses.test.ts 'does not touch stored stars'; all existing unit and component tests pass with their assertions unchanged.",
+      "path": "src/App.test.tsx",
+      "status": "met"
+    }
+  ],
+  "input_revision": "9dde5e5380f73d122bf0bd1ad94609c3524251e4943702c598e4143165905c65",
+  "plugin_digest": "ba7f1740e614a71d7d5ea3f7c4757b3ba07eff850e0c997e4e64b29e1b0ec641",
+  "pr": "https://github.com/Ryanfo/delivery-pilot-app/pull/10",
+  "reason": "Each task now has a labelled native status select (accessible name \"Status for <title>\"), placed after its star button. Changes show straight away in the task's displayed status, the status filter and the results count. App keeps user-set statuses as an ID-to-status map, applied through the pure withStatuses domain function, and saves them under a separate localStorage key (task-list:status:v1) through the existing KeyValueStore boundary. Corrupt, invalid or unavailable storage falls back to the fixture statuses, and the stored stars are not touched. Everything follows the approved plan. One small detail: the space before \"for <title>\" sits outside the visually hidden span, because otherwise the accessible name is computed as \"Statusfor \u2026\".",
+  "run_id": "SDLC-18-development-20261006T142643Z-fdcef3",
+  "schema_version": 1,
+  "selected_comment_ids": [
+    "105181"
+  ],
+  "session_label": "SDLC-18-development-20261006T142643Z-fdcef3",
+  "stage": "development",
+  "started_at": "2026-10-06T14:26:43.494775+00:00",
+  "ticket_key": "SDLC-18",
+  "worker_checks": [
+    {
+      "command": "npm run test:unit",
+      "name": "unit",
+      "result": "passed",
+      "summary": "5 files, 63 tests passed."
+    },
+    {
+      "command": "npm run lint",
+      "name": "lint",
+      "result": "passed",
+      "summary": ""
+    },
+    {
+      "command": "npm run typecheck",
+      "name": "typecheck",
+      "result": "passed",
+      "summary": ""
+    },
+    {
+      "command": "npm run build",
+      "name": "build",
+      "result": "passed",
+      "summary": ""
+    },
+    {
+      "command": "npm run test:e2e",
+      "name": "e2e",
+      "result": "not_run",
+      "summary": "Browsers cannot launch inside the macOS sandbox; left to the coordinator."
+    }
+  ],
+  "worker_id": "ryan-mac"
+}
