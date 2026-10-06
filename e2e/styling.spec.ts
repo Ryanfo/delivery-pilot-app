@@ -48,7 +48,7 @@ async function attachScreenshot(page: Page, name: string) {
 function controls(page: Page) {
   return {
     statusLabel: page.locator('label[for="status-filter"]'),
-    status: page.getByLabel("Status"),
+    status: page.getByLabel("Status", { exact: true }),
     starredLabel: page.locator('label[for="starred-only-filter"]'),
     starredOnly: page.getByLabel("Starred only"),
     search: page.getByRole("searchbox", { name: "Search" }),
@@ -255,7 +255,8 @@ test.describe("editorial styling (SDLC-17)", () => {
     await page.goto("/");
     const c = controls(page);
     const firstStar = page.getByRole("list", { name: "Tasks" }).getByRole("button").first();
-    for (const control of [c.status, c.starredOnly, c.search, firstStar]) {
+    const firstTaskStatus = page.getByRole("list", { name: "Tasks" }).getByRole("combobox").first();
+    for (const control of [c.status, c.starredOnly, c.search, firstStar, firstTaskStatus]) {
       await page.keyboard.press("Tab");
       await expect(control).toBeFocused();
       expect(await style(control, "outline-style")).not.toBe("none");
@@ -281,6 +282,8 @@ test.describe("editorial styling (SDLC-17)", () => {
       ...(await page.locator(".task-description").all()),
       ...(await page.locator(".task-meta").all()),
       ...(await list.getByRole("button").all()),
+      ...(await page.locator(".task-status-label").all()),
+      ...(await list.getByRole("combobox").all()),
     ];
 
     const checks: { colours: Colours; minimum: number }[] = [];
@@ -308,7 +311,9 @@ test.describe("editorial styling (SDLC-17)", () => {
     expect(scrollWidth).toBeLessThanOrEqual(clientWidth);
 
     const stars = await page.getByRole("list", { name: "Tasks" }).getByRole("button").all();
-    for (const control of [c.status, c.starredOnly, c.search, ...stars]) {
+    const taskStatuses = await page.getByRole("list", { name: "Tasks" }).getByRole("combobox").all();
+    expect(taskStatuses).toHaveLength(12);
+    for (const control of [c.status, c.starredOnly, c.search, ...stars, ...taskStatuses]) {
       const b = await box(control);
       expect(b.x).toBeGreaterThanOrEqual(0);
       expect(b.x + b.width).toBeLessThanOrEqual(320);

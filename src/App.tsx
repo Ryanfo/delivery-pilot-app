@@ -2,8 +2,9 @@ import { useMemo, useState } from "react";
 import { TaskList } from "./components/TaskList";
 import { TASKS } from "./data/tasks";
 import { filterTasks, sortTasks, type StatusFilter } from "./domain/filter";
-import type { Task } from "./domain/task";
+import { type Task, type TaskStatus, withStatuses } from "./domain/task";
 import { type KeyValueStore, browserStore, loadStarred, saveStarred } from "./storage/starred";
+import { loadStatuses, saveStatuses } from "./storage/statuses";
 
 interface Props {
   readonly tasks?: readonly Task[];
@@ -26,11 +27,21 @@ export function App({ tasks = TASKS, store = browserStore() }: Props) {
   const [starredOnly, setStarredOnly] = useState(false);
   const [search, setSearch] = useState("");
   const [starred, setStarred] = useState<Set<string>>(() => loadStarred(store));
+  const [statuses, setStatuses] = useState<Map<string, TaskStatus>>(() => loadStatuses(store));
 
+  const current = useMemo(() => withStatuses(tasks, statuses), [tasks, statuses]);
   const visible = useMemo(
-    () => sortTasks(filterTasks(tasks, { status, starredOnly, starredIds: starred, search })),
-    [tasks, status, starredOnly, starred, search],
+    () => sortTasks(filterTasks(current, { status, starredOnly, starredIds: starred, search })),
+    [current, status, starredOnly, starred, search],
   );
+
+  function changeStatus(id: string, next: TaskStatus) {
+    setStatuses((existing) => {
+      const updated = new Map(existing).set(id, next);
+      saveStatuses(store, updated);
+      return updated;
+    });
+  }
 
   function toggleStar(id: string) {
     setStarred((current) => {
@@ -79,7 +90,7 @@ export function App({ tasks = TASKS, store = browserStore() }: Props) {
       <p aria-live="polite" className="results">
         Showing {visible.length} of {tasks.length} tasks · {starred.size} starred
       </p>
-      <TaskList tasks={visible} starred={starred} onToggleStar={toggleStar} />
+      <TaskList tasks={visible} starred={starred} onToggleStar={toggleStar} onChangeStatus={changeStatus} />
     </main>
   );
 }
