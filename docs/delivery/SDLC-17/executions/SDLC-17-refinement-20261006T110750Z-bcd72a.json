@@ -1,0 +1,20 @@
+{
+  "artefact": "docs/delivery/SDLC-17/specification/v001.md",
+  "attempt": 1,
+  "brief_digest": "9f7c228ed1ef4db2a724ed71ddc0b36745c2cad60ed5d3a29b1089fd286f8566",
+  "checks": [],
+  "config_digest": "4da0832bb235657e182d672ecc5e172f8c39b9ad31d8ca7a8e4c4fccd545d4ee",
+  "decision": "success",
+  "input_revision": "b5713af154b9696bae12d75249fb81ce190dd80c14c994a6ba6dc644c491c38f",
+  "plugin_digest": "2f251c90028ece7748d66ec8839d6455ac3be9f16482d80d7da6314ae593838e",
+  "questions": [],
+  "reason": "Wrote specification v001 for adding an editorial visual style to the task list page, which currently has no stylesheet at all. The brief leaves 'editorial' open to interpretation, so the specification defines it as Assumption A1: serif display type, a paper-and-ink palette with one accent colour, a single centred reading column and horizontal rules between tasks. Reviewers can redirect it. The 13 acceptance criteria cover typography, layout, the controls, the starred state, visible focus, WCAG AA contrast, 320px responsiveness, and keeping all text, roles and existing tests unchanged. External web fonts, new dependencies, dark mode and any behaviour or copy changes are out of scope.",
+  "run_id": "SDLC-17-refinement-20261006T110750Z-bcd72a",
+  "schema_version": 1,
+  "selected_comment_ids": [],
+  "session_label": "SDLC-17-refinement-20261006T110750Z-bcd72a",
+  "stage": "refinement",
+  "started_at": "2026-10-06T11:07:50.379495+00:00",
+  "ticket_key": "SDLC-17",
+  "worker_id": "ryan-mac"
+}
