@@ -44,8 +44,8 @@ export function App({ tasks = TASKS, store = browserStore() }: Props) {
 
   return (
     <main>
-      <h1>Task list</h1>
-      <section aria-label="Welcome">HELLO WORLD</section>
+      <h1 className="masthead">Task list</h1>
+      <section aria-label="Welcome" className="standfirst">HELLO WORLD</section>
       <div className="controls">
         <label htmlFor="status-filter">Status</label>
         <select
@@ -77,7 +77,7 @@ export function App({ tasks = TASKS, store = browserStore() }: Props) {
           onChange={(e) => setSearch(e.target.value)}
         />
       </div>
-      <p aria-live="polite">
+      <p aria-live="polite" className="results">
         Showing {visible.length} of {tasks.length} tasks · {starred.size} starred
       </p>
       <TaskList tasks={visible} starred={starred} onToggleStar={toggleStar} />
