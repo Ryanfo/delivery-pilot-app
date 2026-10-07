@@ -1,0 +1,19 @@
+{
+  "artefact": "docs/delivery/SDLC-18/releases/v001.md",
+  "attempt": 1,
+  "brief_digest": "fc2d69d954754d05905837461c5d2cd3e7ccb134843d3c086ec25da50a6d8230",
+  "checks": [],
+  "config_digest": "4da0832bb235657e182d672ecc5e172f8c39b9ad31d8ca7a8e4c4fccd545d4ee",
+  "decision": "success",
+  "input_revision": "a2331291a491feea060fa44b54fe2ee74e81c48995d84444cf57147035adc972",
+  "plugin_digest": "1be90489d2755ce9aeac162b229ff500a06236e476701031fd2f56afa553682f",
+  "reason": "Release proposal v001 for candidate 2a04e49 (local-pilot): users can change each task's status from a labelled, keyboard-operable Status control; the filter and count update immediately and changes persist in the browser under a new key, task-list:status:v1, with stars untouched. Review and verification found AC1-AC8 met with no deviations; the two informational review notes need no action. The proposal includes a pre-merge checklist, 12 smoke checks (change, filter, keyboard, reload, corrupt-storage) and a revert-based rollback that needs no data migration.",
+  "run_id": "SDLC-18-release_preparation-20261007T194142Z-bd4a54",
+  "schema_version": 1,
+  "selected_comment_ids": [],
+  "session_label": "SDLC-18-release_preparation-20261007T194142Z-bd4a54",
+  "stage": "release_preparation",
+  "started_at": "2026-10-07T19:41:42.310715+00:00",
+  "ticket_key": "SDLC-18",
+  "worker_id": "ryan-mac"
+}
