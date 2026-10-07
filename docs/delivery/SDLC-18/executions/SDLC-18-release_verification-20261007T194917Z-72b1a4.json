@@ -1,0 +1,41 @@
+{
+  "attempt": 1,
+  "brief_digest": "fc2d69d954754d05905837461c5d2cd3e7ccb134843d3c086ec25da50a6d8230",
+  "checks": [
+    {
+      "base_sha": null,
+      "conclusion": "passed",
+      "duration_seconds": 2.82,
+      "exit_code": 0,
+      "log_path": "/Users/roconnor/.local/state/delivery/runs/SDLC-18/SDLC-18-release_verification-20261007T194917Z-72b1a4/logs/release-setup.log",
+      "name": "setup",
+      "producer": "delivery-coordinator",
+      "sha": "31b7f953e3c2a05afc1e68987108c5c193343e5c",
+      "source": "coordinator",
+      "target": "release",
+      "tree_sha": null,
+      "url": null
+    }
+  ],
+  "config_digest": "4da0832bb235657e182d672ecc5e172f8c39b9ad31d8ca7a8e4c4fccd545d4ee",
+  "decision": "success",
+  "input_revision": "8a8296a51d6c1cd31fc884c214cbb4c9e132492de537a587368467773c6056ef",
+  "plugin_digest": "1be90489d2755ce9aeac162b229ff500a06236e476701031fd2f56afa553682f",
+  "reason": "The released commit 31b7f95 (merge of PR #10) has a tree identical to the accepted candidate 2a04e49. It builds, and its unit and component tests cover every SDLC-18 acceptance criterion (AC1\u2013AC8). No smoke step failed. The steps that need a browser (2\u201311) were not observed in one: Chromium cannot run in the worker sandbox, and the coordinator supplied no e2e result for the released commit. Running the e2e suite or a manual browser smoke on 31b7f95 would close that gap (F1).",
+  "release": {
+    "commit": "31b7f953e3c2a05afc1e68987108c5c193343e5c",
+    "environment": "local-pilot",
+    "merged_at": "2026-10-07T18:28:13+00:00",
+    "merged_by": "Ryanfo",
+    "merged_pr": "10",
+    "source": "github"
+  },
+  "run_id": "SDLC-18-release_verification-20261007T194917Z-72b1a4",
+  "schema_version": 1,
+  "selected_comment_ids": [],
+  "session_label": "SDLC-18-release_verification-20261007T194917Z-72b1a4",
+  "stage": "release_verification",
+  "started_at": "2026-10-07T19:49:17.144066+00:00",
+  "ticket_key": "SDLC-18",
+  "worker_id": "ryan-mac"
+}
