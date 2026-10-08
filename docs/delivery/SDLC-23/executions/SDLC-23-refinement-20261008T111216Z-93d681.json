@@ -1,0 +1,20 @@
+{
+  "artefact": "docs/delivery/SDLC-23/specification/v001.md",
+  "attempt": 1,
+  "brief_digest": "ce1e4508a5952a4b100e46962ddcffda21d4f6e56b2f3f2dae46de9d28d5ad4e",
+  "checks": [],
+  "config_digest": "075b864c3e281c2ab33cab6bf7f5ee2b525710f48fcd0efceb76db8d10034df4",
+  "decision": "success",
+  "input_revision": "b95621c23c2d3ea67eeee37e6e165266a1528ef7178a54bab65e780b25599b92",
+  "plugin_digest": "a7fbce20a4d84503f36fdc96b11e61a47cfb53871db417e0f2bef7d46b6624f7",
+  "questions": [],
+  "reason": "Specification v001 adds a per-task Priority dropdown (Low/Medium/High). It is labelled 'Priority for <task title>', like the existing Status dropdown. Changes update the 'Priority: ...' text and the sort order immediately, are stored in localStorage like starred tasks, and are still there after a reload. It has eight acceptance criteria: the brief's six, plus one for resilience to corrupt or unavailable storage and one making the immediate re-sort explicit. Six explicit assumptions are listed for reviewers to confirm, chiefly that 'current session' still means localStorage as for starred tasks, and that the 'Priority: ...' text keeps its lowercase format. No open questions.",
+  "run_id": "SDLC-23-refinement-20261008T111216Z-93d681",
+  "schema_version": 1,
+  "selected_comment_ids": [],
+  "session_label": "SDLC-23-refinement-20261008T111216Z-93d681",
+  "stage": "refinement",
+  "started_at": "2026-10-08T11:12:16.023045+00:00",
+  "ticket_key": "SDLC-23",
+  "worker_id": "ryan-mac"
+}
