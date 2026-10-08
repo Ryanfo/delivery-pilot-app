@@ -1,0 +1,48 @@
+{
+  "actual_commit": null,
+  "actual_paths": [],
+  "components": [
+    "domain",
+    "storage",
+    "ui",
+    "e2e",
+    "styles"
+  ],
+  "dependencies": [],
+  "domain_models": [
+    "Task.priority (now user-overridable at runtime; type unchanged)",
+    "TaskPriority"
+  ],
+  "interfaces": [
+    "src/domain/task.ts: PRIORITY_LABELS, TASK_PRIORITIES, isTaskPriority, withPriorities (new exports)",
+    "src/storage/priorities.ts: PRIORITY_KEY, loadPriorities, savePriorities (new module)",
+    "TaskList props: onChangePriority (new required prop)",
+    "App: derived task list now withPriorities(withStatuses(tasks, statuses), priorities)"
+  ],
+  "migrations": [],
+  "owner_account_id": "5b51e9f46a66cf638d2cb417",
+  "paths": [
+    "src/domain/task.ts",
+    "src/domain/task.test.ts",
+    "src/domain/filter.test.ts",
+    "src/storage/priorities.ts",
+    "src/storage/priorities.test.ts",
+    "src/App.tsx",
+    "src/App.test.tsx",
+    "src/components/TaskList.tsx",
+    "src/styles.css",
+    "e2e/app.spec.ts",
+    "e2e/styling.spec.ts"
+  ],
+  "plan_revision": 1,
+  "published_at": "2026-10-08T11:17:59.348932Z",
+  "schema_version": 1,
+  "schemas": [
+    "localStorage key task-list:priority:v1: JSON object { taskId: 'low'|'medium'|'high' }"
+  ],
+  "sequencing_notes": "Builds on SDLC-18 (already merged). Later tickets that change .task-actions, the derived task list in App.tsx, or count comboboxes in e2e tests should follow this one. F1 (two existing test selectors narrowed) needs plan-review sign-off.",
+  "source_commit": "31b7f953e3c2a05afc1e68987108c5c193343e5c",
+  "stage": "planning",
+  "ticket_dependencies": [],
+  "ticket_key": "SDLC-23"
+}

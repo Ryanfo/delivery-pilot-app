@@ -1,0 +1,20 @@
+{
+  "artefact": "docs/delivery/SDLC-23/plan/v001.md",
+  "attempt": 1,
+  "brief_digest": "ce1e4508a5952a4b100e46962ddcffda21d4f6e56b2f3f2dae46de9d28d5ad4e",
+  "checks": [],
+  "config_digest": "075b864c3e281c2ab33cab6bf7f5ee2b525710f48fcd0efceb76db8d10034df4",
+  "decision": "success",
+  "input_revision": "7e13d9cb2b18d355b01eb652a98472716c67c1c9288ab308d0e8f86ad8dcfa34",
+  "overlap": [],
+  "plugin_digest": "a7fbce20a4d84503f36fdc96b11e61a47cfb53871db417e0f2bef7d46b6624f7",
+  "reason": "Plan v001 follows the SDLC-18 Status dropdown pattern. It adds a pure withPriorities domain function, a new localStorage key task-list:priority:v1 with the same resilient load/save, priority state in App composed over statuses, and a labelled 'Priority for <title>' select after each task's Status control. Sorting, filters and the results line pick up changed priorities with no change to filter.ts. Every AC maps to named unit, component and e2e tests. Reviewer decision needed (F1): a second per-task dropdown breaks two existing tests on selector ambiguity alone (SDLC-18 AC1 component test, styling AC11 e2e). The plan scopes those two queries by accessible name without weakening them, which conflicts with AC8's 'existing tests unchanged' wording.",
+  "run_id": "SDLC-23-planning-20261008T111451Z-4a68d0",
+  "schema_version": 1,
+  "selected_comment_ids": [],
+  "session_label": "SDLC-23-planning-20261008T111451Z-4a68d0",
+  "stage": "planning",
+  "started_at": "2026-10-08T11:14:51.373070+00:00",
+  "ticket_key": "SDLC-23",
+  "worker_id": "ryan-mac"
+}
